@@ -7,7 +7,7 @@
 <title>Troc enchère</title>
 </head>
 <body>
-<h1>Troc Enchère</h1>
+<h1>Troc Enchère - Accueil</h1>
 <a href="connexion">S'inscrire - Se connecter</a>
 </body>
 </html>
