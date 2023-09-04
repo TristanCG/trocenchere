@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Troc enchère</title>
+<title>Troc Enchère - Créer un compte</title>
 </head>
 <body>
-<h1>Troc Enchère</h1>
-<a href="connexion">S'inscrire - Se connecter</a>
+
 </body>
 </html>

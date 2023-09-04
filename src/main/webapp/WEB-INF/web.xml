@@ -29,4 +29,24 @@
     <servlet-name>ServletConnexionBDD</servlet-name>
     <url-pattern>/servletconnexionbdd</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Connexion</display-name>
+    <servlet-name>Connexion</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.Connexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Connexion</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreerUnCompte</display-name>
+    <servlet-name>CreerUnCompte</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.CreerUnCompte</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreerUnCompte</servlet-name>
+    <url-pattern>/creeruncompte</url-pattern>
+  </servlet-mapping>
 </web-app>
