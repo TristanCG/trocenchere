@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ServletConnexionBDD</display-name>
+    <servlet-name>ServletConnexionBDD</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.ServletConnexionBDD</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletConnexionBDD</servlet-name>
+    <url-pattern>/servletconnexionbdd</url-pattern>
+  </servlet-mapping>
 </web-app>
