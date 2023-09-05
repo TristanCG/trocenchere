@@ -7,14 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<form action ="ajouter_categorie" mthode= "post" >
-		<label for="libelle">Libelle :</label>
-		<input type="text" name="libelle" id="libelle" >
-		
-
-		<input type="submit" value="Enregistrer" >
-		
-		
+		<form action="ajouter_categorie" method="post" >
+			<label for="libelle">Libelle :</label>
+			<input type="text" name="libelle" id="libelle" >
+			
+			<input type="submit" value="Enregistrer" >
 		</form>
 </body>
 </html>

@@ -10,6 +10,8 @@ import java.io.IOException;
 
 import javax.print.attribute.standard.RequestingUserName;
 
+import fr.eni.trocenchere.bll.CategorieManger;
+
 /**
  * Servlet implementation class AjouterCategories
  */
@@ -29,7 +31,11 @@ public class AjouterCategorie extends HttpServlet {
 		
 		String libelle = request.getParameter("libelle");
 		
-		try {
+		try { 
+			CategorieManger.getInstance().insert(libelle);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categories.jsp");
+	        rd.forward(request, response);
+	    
 			
 			
 		} catch (Exception e) {
