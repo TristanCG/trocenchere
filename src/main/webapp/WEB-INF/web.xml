@@ -59,4 +59,24 @@
     <servlet-name>Vendre</servlet-name>
     <url-pattern>/vendre</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Categories</display-name>
+    <servlet-name>Categories</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.Categories</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Categories</servlet-name>
+    <url-pattern>/categories</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjouterCategorie</display-name>
+    <servlet-name>AjouterCategorie</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.AjouterCategorie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjouterCategorie</servlet-name>
+    <url-pattern>/ajouter_categorie</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,18 +1,36 @@
 package fr.eni.trocenchere.bo;
 
-import java.util.ArrayList;
-import java.util.List;
+;
 
 public class Categorie {
 
 	private int noCategorie;
 	private String libelle;
-	private List <ArticleVendu> articles = new ArrayList <ArticleVendu>(); //Liste d'articles vendus 
 	
 	//Constructeurs 
 	public Categorie() {
 		super();
 	}
+	
+	
+
+
+	public Categorie(int noCategorie, String libelle) {
+		super();
+		this.noCategorie = noCategorie;
+		this.libelle = libelle;
+	}
+	
+
+
+
+
+	public Categorie(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
+
+
 
 
 	//Getters et Setters 
@@ -28,20 +46,12 @@ public class Categorie {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	
-	public List <ArticleVendu> getArticles() {
-		return articles;
-	}
-
-	public void setArticles(List <ArticleVendu> articles) {
-		this.articles = articles;
-	}
 
 	
 	//ToString 
 	@Override
 	public String toString() {
-		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + ", articles=" + articles + "]";
+		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
 	} 
 		
 	

@@ -4,7 +4,7 @@ import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAOFactory;
 
 public class UtilisateurManager {
-	//Singletin
+	//Singleton
 	private static UtilisateurManager instance;
 	
 	public static UtilisateurManager getInstance() {
