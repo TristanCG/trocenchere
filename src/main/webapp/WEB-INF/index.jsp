@@ -7,7 +7,34 @@
 <title>Troc enchère</title>
 </head>
 <body>
-<h1>Troc Enchère - Accueil</h1>
-<a href="connexion">S'inscrire - Se connecter</a>
+
+
+<header>
+	<h1>Troc Enchère - Accueil</h1>
+	<div>
+		<a href="connexion">S'inscrire - Se connecter</a>
+	</div>
+	<div>
+		<a href="vendre">Vendre un article</a>
+	</div>
+	<div>
+		<a href="categories">Catégories</a>
+	</div>
+</header>
+
+<section class="accueil">
+	<h2>Liste des enchères</h2>
+	<div class="container">
+		<div>
+			
+		
+		</div>
+		<div></div>
+		<div></div>
+	</div>
+</section>
+
+
+
 </body>
 </html>
