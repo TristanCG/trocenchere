@@ -14,7 +14,6 @@
 	<input type="text" name="motDePasse" id="motDePasse"><br>
 	<input type="submit">
 </form>
-
 <a href="creeruncompte">Créer un compte</a>
 </body>
 </html>
