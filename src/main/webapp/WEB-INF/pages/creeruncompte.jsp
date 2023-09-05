@@ -28,51 +28,51 @@
 	<div>
 		<div>
 			<label for="pseudo">pseudo :</label>
-			<input type="text" name="pseudo" id="pseudo">
+			<input type="text" name="pseudo" id="pseudo" value="Chantal">
 		</div>
 		<div>
 			<label for="nom">Nom :</label>
-			<input type="text" name="nom" id="nom">
+			<input type="text" name="nom" id="nom" value="GUILLOU">
 		</div>
 	</div>
 	<div>
 		<div>
 			<label for="prenom">prénom :</label>
-			<input type="text" name="prenom" id="prenom">
+			<input type="text" name="prenom" id="prenom" value="Tristan">
 		</div>
 		<div>
 			<label for="email">Email :</label>
-			<input type="email" name="email" id="email">
+			<input type="email" name="email" id="email" value="tristan.guillou2023@campus-eni.fr">
 		</div>
 	</div>
 	<div>
 		<div>
 			<label for="telephone">Teléphone :</label>
-			<input type="tel" name="telephone" id="telephone">
+			<input type="tel" name="telephone" id="telephone" value="0768589133">
 		</div>
 		<div>
 			<label for="rue">Rue :</label>
-			<input type="text" name="rue" id="rue">
+			<input type="text" name="rue" id="rue" value="8 avenue Tatatiana">
 		</div>
 	</div>
 	<div>
 		<div>
-			<label for="codepostal">Code postale  :</label>
-			<input type="number" name="codepostal" id="codepostal">
+			<label for="codePostal">Code postale  :</label>
+			<input type="text" name="codePostal" id="codePostal" value="35000">
 		</div>
 		<div>
 			<label for="ville">Ville :</label>
-			<input type="text" name="ville" id="ville">
+			<input type="text" name="ville" id="ville" value="Rennes">
 		</div>
 	</div>
 	<div>
 		<div>
 			<label for="motDePasse">Mot de passe :</label>
-			<input type="password" name="motDePasse" id="motDePasse">
+			<input type="password" name="motDePasse" id="motDePasse" value="Tatiana">
 		</div>
 		<div>
 			<label for="confirmationMotDePasse">Confirmation :</label>
-			<input type="password" name="confirmationMotDePasse" id="confirmationMotDePasse">
+			<input type="password" name="confirmationMotDePasse" id="confirmationMotDePasse" value="Tatiana">
 		</div>
 	</div>
 	<div>
