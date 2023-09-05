@@ -3,25 +3,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Troc Enchère - Créer un compte</title>
-<style>
-	form{
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
-	}
-	form div{
-		display: flex;
-		flex-wrap: nowrap;
-		gap: 50px;
-		margin: 0 0 10px 0;
-	}
-	form label{
-		diplay:block;
-		width:100px;
-	}
-</style>
+	<meta charset="UTF-8">
+	<title>Troc Enchère - Créer un compte</title>
+	<style>
+		form{
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+		}
+		form div{
+			display: flex;
+			flex-wrap: nowrap;
+			gap: 50px;
+			margin: 0 0 10px 0;
+		}
+		form label{
+			diplay:block;
+			width:100px;
+		}
+	</style>
 </head>
 <body>
 <form method="POST" action="accueil">
