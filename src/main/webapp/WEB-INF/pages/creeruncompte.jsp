@@ -15,6 +15,7 @@
 		display: flex;
 		flex-wrap: nowrap;
 		gap: 50px;
+		margin: 0 0 10px 0;
 	}
 	form label{
 		diplay:block;
