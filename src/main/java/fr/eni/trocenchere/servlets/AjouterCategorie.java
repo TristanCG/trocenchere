@@ -35,9 +35,7 @@ public class AjouterCategorie extends HttpServlet {
 			CategorieManger.getInstance().insert(libelle);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categories.jsp");
 	        rd.forward(request, response);
-	    
-			
-			
+	   
 		} catch (Exception e) {
 			
 		}
