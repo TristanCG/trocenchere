@@ -19,24 +19,8 @@ public class Accueil extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pseudo = request.getParameter("pseudo");
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String email = request.getParameter("email");
-		String telephone = request.getParameter("telephone");
-		String rue = request.getParameter("rue");
-		String codePostal = request.getParameter("codePostal");
-		String ville = request.getParameter("ville");
-		String motDePasse = request.getParameter("motDePasse");
-		
-		try {
-			UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 0, false);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
-			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

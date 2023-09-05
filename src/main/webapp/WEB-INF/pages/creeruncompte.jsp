@@ -24,7 +24,7 @@
 	</style>
 </head>
 <body>
-<form method="POST" action="accueil">
+<form method="POST" action=creeruncompte>
 	<div>
 		<div>
 			<label for="pseudo">Pseudo :</label>
