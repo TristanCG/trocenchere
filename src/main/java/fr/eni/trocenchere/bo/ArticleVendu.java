@@ -129,7 +129,7 @@ public class ArticleVendu {
 	public void setEncheres(List<Enchere> encheres) {
 		this.encheres = encheres;
 	}
-
+	
 
 	//ToString 
 	@Override

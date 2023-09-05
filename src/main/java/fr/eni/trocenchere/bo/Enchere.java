@@ -74,6 +74,7 @@ public class Enchere {
 		this.articlesvendus = articlesvendus;
 	}
 
+	
 	//ToString 
 	@Override
 	public String toString() {

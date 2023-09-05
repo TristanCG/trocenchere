@@ -36,7 +36,7 @@ public class Categorie {
 	public void setArticles(List <ArticleVendu> articles) {
 		this.articles = articles;
 	}
-	
+
 	
 	//ToString 
 	@Override

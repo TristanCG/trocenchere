@@ -45,7 +45,7 @@ public class Retrait {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-
+	
 	//ToSring 
 	@Override
 	public String toString() {
