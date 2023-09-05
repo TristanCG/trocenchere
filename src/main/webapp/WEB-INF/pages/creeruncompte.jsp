@@ -24,7 +24,7 @@
 	</style>
 </head>
 <body>
-<form method="POST" action="accueil">
+<form method="POST" action="accueil" >
 	<div>
 		<div>
 			<label for="pseudo">Pseudo :</label>
@@ -77,7 +77,7 @@
 	</div>
 	<div>
 		<div>
-			<input type="submit" value="Créer">
+			<input type="submit" value="Créer" name="creerUnCompte">
 		</div>
 		<div>
 			<a href="accueil">Annuler</a>

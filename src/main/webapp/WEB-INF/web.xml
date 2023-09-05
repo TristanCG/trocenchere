@@ -49,4 +49,14 @@
     <servlet-name>CreerUnCompte</servlet-name>
     <url-pattern>/creeruncompte</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Vendre</display-name>
+    <servlet-name>Vendre</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.Vendre</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Vendre</servlet-name>
+    <url-pattern>/vendre</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -19,11 +19,7 @@ public class ArticleVendu {
 	private Categorie categories; //Lien directionnel vers Categorie 
 	private Retrait retrait; //Lien UNIdirectionnel vers Retrait 
 	private List <Enchere> encheres = new ArrayList <Enchere>(); //Un article a une liste d'enchères par les futurs acheteurs
-	
-	//Constructeurs 
-	public ArticleVendu() {
-		super();
-	}
+
 
 	//Getters et Setters 
 	public int getNoArticle() {
@@ -130,7 +126,21 @@ public class ArticleVendu {
 		this.encheres = encheres;
 	}
 	
+	
+	//Constructeurs 
+	public ArticleVendu() {
+		super();
+	}
 
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial) {
+		this();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.prixInitial = prixInitial;
+	}
+	
 	//ToString 
 	@Override
 	public String toString() {

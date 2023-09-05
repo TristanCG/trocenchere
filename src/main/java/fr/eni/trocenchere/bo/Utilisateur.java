@@ -156,7 +156,6 @@ public class Utilisateur {
 		this.encheres = encheres;
 	}
 
-
 	// To String 
 	@Override
 	public String toString() {
