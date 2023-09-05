@@ -27,7 +27,7 @@
 <form method="POST" action="accueil">
 	<div>
 		<div>
-			<label for="pseudo">pseudo :</label>
+			<label for="pseudo">Pseudo :</label>
 			<input type="text" name="pseudo" id="pseudo" value="Chantal">
 		</div>
 		<div>
@@ -37,7 +37,7 @@
 	</div>
 	<div>
 		<div>
-			<label for="prenom">prénom :</label>
+			<label for="prenom">Prénom :</label>
 			<input type="text" name="prenom" id="prenom" value="Tristan">
 		</div>
 		<div>
