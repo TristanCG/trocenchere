@@ -10,10 +10,10 @@
 <body>
 	 <a href = "ajouter_categorie">Ajouter une catégories </a>
 	 <table>
-			 <tr>
-			 	<th>Numéro</th>
-			 	<th>Nom</th>
-			 </tr>
+		 <tr>
+		 	<th>Numéro</th>
+		 	<th>Nom</th>
+		 </tr>
 		 <c:forEach items="${categories }" var="categories">
 			 <tr>
 			 	<td>${categories.noCategorie }</td>
@@ -21,5 +21,6 @@
 			 </tr>
 		 </c:forEach>
 	 </table>
+	 <a href="accueil">Accueil</a>
 </body>
 </html>

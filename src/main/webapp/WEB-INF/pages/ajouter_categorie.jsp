@@ -1,21 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!--  <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-		<form action="ajouter_categorie" method="post" >
-			<label for="libelle">Libelle :</label>
-			<input type="text" name="libelle" id="libelle" >
-			
-			<input type="submit" value="Enregistrer" >
-		</form>
-</body>
-</html>-->
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,6 +16,7 @@
 			
 			<!--  <input type="submit" value="Enregistrer" >-->
 		</form>
+	<br> <a href="accueil">Accueil</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
