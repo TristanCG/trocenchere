@@ -28,51 +28,51 @@
 	<div>
 		<div>
 			<label for="pseudo">Pseudo :</label>
-			<input type="text" name="pseudo" id="pseudo" value="Chantal">
+			<input type="text" name="pseudo" id="pseudo" value="">
 		</div>
 		<div>
 			<label for="nom">Nom :</label>
-			<input type="text" name="nom" id="nom" value="GUILLOU">
+			<input type="text" name="nom" id="nom" value="">
 		</div>
 	</div>
 	<div>
 		<div>
 			<label for="prenom">Prénom :</label>
-			<input type="text" name="prenom" id="prenom" value="Tristan">
+			<input type="text" name="prenom" id="prenom" value="">
 		</div>
 		<div>
 			<label for="email">Email :</label>
-			<input type="email" name="email" id="email" value="tristan.guillou2023@campus-eni.fr">
+			<input type="email" name="email" id="email" value="">
 		</div>
 	</div>
 	<div>
 		<div>
 			<label for="telephone">Teléphone :</label>
-			<input type="tel" name="telephone" id="telephone" value="0768589133">
+			<input type="tel" name="telephone" id="telephone" value="">
 		</div>
 		<div>
 			<label for="rue">Rue :</label>
-			<input type="text" name="rue" id="rue" value="8 avenue Tatatiana">
+			<input type="text" name="rue" id="rue" value="">
 		</div>
 	</div>
 	<div>
 		<div>
 			<label for="codePostal">Code postale  :</label>
-			<input type="text" name="codePostal" id="codePostal" value="35000">
+			<input type="text" name="codePostal" id="codePostal" value="">
 		</div>
 		<div>
 			<label for="ville">Ville :</label>
-			<input type="text" name="ville" id="ville" value="Rennes">
+			<input type="text" name="ville" id="ville" value="">
 		</div>
 	</div>
 	<div>
 		<div>
 			<label for="motDePasse">Mot de passe :</label>
-			<input type="password" name="motDePasse" id="motDePasse" value="Tatiana">
+			<input type="password" name="motDePasse" id="motDePasse" value="">
 		</div>
 		<div>
 			<label for="confirmationMotDePasse">Confirmation :</label>
-			<input type="password" name="confirmationMotDePasse" id="confirmationMotDePasse" value="Tatiana">
+			<input type="password" name="confirmationMotDePasse" id="confirmationMotDePasse" value="">
 		</div>
 	</div>
 	<div>
