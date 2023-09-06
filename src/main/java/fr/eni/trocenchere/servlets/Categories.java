@@ -7,6 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
+import fr.eni.trocenchere.bll.CategorieManager;
+import fr.eni.trocenchere.bo.Categorie;
 
 /**
  * Servlet implementation class Categories
@@ -16,8 +20,12 @@ public class Categories extends HttpServlet {
    
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categories.jsp");
-	        rd.forward(request, response);
+		List<Categorie> categories = CategorieManager.getInstance().selectAll();
+		System.out.println(categories);
+		request.setAttribute("categories", categories);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categories.jsp");
+	     rd.forward(request, response);
 	    }
 		
 		

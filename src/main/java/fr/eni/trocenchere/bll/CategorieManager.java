@@ -1,16 +1,18 @@
 package fr.eni.trocenchere.bll;
 
+import java.util.List;
+
 import fr.eni.trocenchere.bo.Categorie;
 import fr.eni.trocenchere.dal.DAOFactory;
 
-public class CategorieManger {
+public class CategorieManager {
 	
-	private static CategorieManger instance ; 
+	private static CategorieManager instance ; 
 	
-	public static CategorieManger getInstance() {
+	public static CategorieManager getInstance() {
 		
 		if (instance == null ) {
-			instance = new CategorieManger (); 
+			instance = new CategorieManager (); 
 		
 		}
 		
@@ -18,10 +20,13 @@ public class CategorieManger {
 		
 	}
 
-	private CategorieManger () {
+	private CategorieManager () {
 		
 	}
 	
+	public List<Categorie> selectAll(){
+		return DAOFactory.getCategorieDAO().selectAll();
+	}
 	
 	public Categorie insert (String libelle) {
 		

@@ -1,37 +1,12 @@
 package fr.eni.trocenchere.bo;
 
-;
+
 
 public class Categorie {
 
 	private int noCategorie;
 	private String libelle;
 	
-	//Constructeurs 
-	public Categorie() {
-		super();
-	}
-	
-	
-
-
-	public Categorie(int noCategorie, String libelle) {
-		super();
-		this.noCategorie = noCategorie;
-		this.libelle = libelle;
-	}
-	
-
-
-
-
-	public Categorie(String libelle) {
-		super();
-		this.libelle = libelle;
-	}
-
-
-
 
 	//Getters et Setters 
 	public int getNoCategorie() {
@@ -53,6 +28,20 @@ public class Categorie {
 	public String toString() {
 		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
 	} 
-		
+	
+	
+	//Constructeurs 
+	public Categorie() {
+		super();
+	}
+	public Categorie(int noCategorie, String libelle) {
+		super();
+		this.noCategorie = noCategorie;
+		this.libelle = libelle;
+	}
+	public Categorie(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
 	
 }
