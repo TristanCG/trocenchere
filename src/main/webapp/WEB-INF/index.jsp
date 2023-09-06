@@ -11,20 +11,27 @@
 
 
 <header>
-	<h1>Troc Enchère - Accueil</h1>
-	<div>
+<h1>Troc Enchère - Accueil</h1>
+<c:if test="${empty sessionScope.noUtilisateur}">
 		<a href="connexion">S'inscrire - Se connecter</a>
-	</div>
+</c:if>
+<c:if test="${not empty sessionScope.noUtilisateur}">
+	<a href="#">Enchère</a>
+	<a href="vendre">Vendre un article</a>
+	<a href="#">Mon profil</a>
+	<a href="#">Déconnexion</a>
+
+    <div>Bienvenue, <c:out value="${sessionScope.pseudo}" /></div>
+
+
 	<div>
-		<a href="vendre">Vendre un article</a>
-	</div>
-	<div>
+		A conditionner pour la page Admin
 		<a href="categories">Catégories</a>
 	</div>
-</header>
-<c:if test="${not empty sessionScope.prenom}">
-    <div>Bienvenue, <c:out value="${sessionScope.prenom}" /></div>
 </c:if>
+
+</header>
+
 <section class="accueil">
 	<h2>Liste des enchères</h2>
 	<div class="container">
