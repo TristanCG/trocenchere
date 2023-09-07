@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ArticleVendu {
 
-	private int noArticle; 
+	private int noArticle;
 	private String nomArticle;
 	private String description;
 	private LocalDate dateDebutEncheres;
@@ -15,13 +15,12 @@ public class ArticleVendu {
 	private int prixVente;
 	private int noUtilisateur;
 	private int noCategorie;
-	private Utilisateur utilisateur; //Lien directionnel vers Utilisateur 
-	private Categorie categories; //Lien directionnel vers Categorie 
-	private Retrait retrait; //Lien UNIdirectionnel vers Retrait 
-	private List <Enchere> encheres = new ArrayList <Enchere>(); //Un article a une liste d'enchères par les futurs acheteurs
+	private Utilisateur utilisateur; // Lien directionnel vers Utilisateur
+	private Categorie categories; // Lien directionnel vers Categorie
+	private Retrait retrait; // Lien UNIdirectionnel vers Retrait
+	private List<Enchere> encheres = new ArrayList<Enchere>(); // Un article a une liste d'enchères par les futurs
 
-
-	//Getters et Setters 
+	// Getters et Setters
 	public int getNoArticle() {
 		return noArticle;
 	}
@@ -93,8 +92,8 @@ public class ArticleVendu {
 	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
-
-	public Utilisateur getUtilisateur() {
+	
+		public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
@@ -125,14 +124,15 @@ public class ArticleVendu {
 	public void setEncheres(List<Enchere> encheres) {
 		this.encheres = encheres;
 	}
-	
-	
-	//Constructeurs 
+
+
+	// Constructeurs
 	public ArticleVendu() {
 		super();
 	}
 
-	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial) {
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			int prixInitial) {
 		this();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -140,7 +140,7 @@ public class ArticleVendu {
 		this.dateFinEncheres = dateFinEncheres;
 		this.prixInitial = prixInitial;
 	}
-	
+
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			int prixInitial, int noCategorie) {
 		this();
@@ -153,26 +153,34 @@ public class ArticleVendu {
 	}
 
 	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			int prixInitial, int noUtilisateur, int noCategorie) {
+			int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
 		this();
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
 		this.dateFinEncheres = dateFinEncheres;
 		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 	}
 
-	//ToString 
+	public ArticleVendu(int noArticleEnCours, String nomArticle, int prixInitial, LocalDate dateFinEncheres) {
+		this();
+		this.noArticle = noArticleEnCours;
+		this.nomArticle = nomArticle;
+		this.prixInitial = prixInitial;
+		this.dateFinEncheres = dateFinEncheres;
+	}
+
+	// ToString
 	@Override
 	public String toString() {
 		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
 				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", prixInitial="
 				+ prixInitial + ", prixVente=" + prixVente + ", noUtilisateur=" + noUtilisateur + ", noCategorie="
-				+ noCategorie + ", utilisateur=" + utilisateur + ", categories=" + categories + ", retrait=" + retrait
+				+ noCategorie + ", categories=" + categories + ", retrait=" + retrait
 				+ ", encheres=" + encheres + "]";
 	}
 
-	
-} 
+}
