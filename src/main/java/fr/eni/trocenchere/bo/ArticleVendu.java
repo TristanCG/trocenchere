@@ -141,6 +141,29 @@ public class ArticleVendu {
 		this.prixInitial = prixInitial;
 	}
 	
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			int prixInitial, int noCategorie) {
+		this();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.prixInitial = prixInitial;
+		this.noCategorie = noCategorie;
+	}
+
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			int prixInitial, int noUtilisateur, int noCategorie) {
+		this();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.prixInitial = prixInitial;
+		this.noUtilisateur = noUtilisateur;
+		this.noCategorie = noCategorie;
+	}
+
 	//ToString 
 	@Override
 	public String toString() {

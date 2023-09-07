@@ -22,8 +22,8 @@ public class ArticleVenduManager {
 	}
 	//Fin Singleton
 	
-	public ArticleVendu insert(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial) {
-		ArticleVendu nouveauArticleVendu = new ArticleVendu (nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial); 
+	public ArticleVendu insert(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int noUtilisateur,int noCategorie) {
+		ArticleVendu nouveauArticleVendu = new ArticleVendu (nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, noUtilisateur ,noCategorie); 
 		//Ici on retouve le constructeur de ArticleVendu
 		
 		System.out.println(nouveauArticleVendu);
