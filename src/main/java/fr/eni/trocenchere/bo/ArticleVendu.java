@@ -165,11 +165,11 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 	}
 
-	public ArticleVendu(int noArticleEnCours, String nomArticle, int prixInitial, LocalDate dateFinEncheres) {
+	public ArticleVendu(int noArticleEnCours, String nomArticle, int prixVente, LocalDate dateFinEncheres) {
 		this();
 		this.noArticle = noArticleEnCours;
 		this.nomArticle = nomArticle;
-		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
 		this.dateFinEncheres = dateFinEncheres;
 	}
 

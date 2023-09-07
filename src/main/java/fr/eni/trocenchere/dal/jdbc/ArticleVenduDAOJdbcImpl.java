@@ -62,10 +62,10 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 				if(noArticleEnCours != noArticlePrecedent) {
 					String nomArticle = rs.getString("nom_article");
 					//TODO La c'est prix initial, il faudra le prix de vente actuel après
-					int prixInitial = rs.getInt("prix_initial"); 
+					int prixVente = rs.getInt("prix_vente"); 
 					LocalDate dateFinEncheres = rs.getDate("date_fin_encheres").toLocalDate(); 
 					
-					articlevendu = new ArticleVendu(noArticleEnCours, nomArticle, prixInitial, dateFinEncheres); 
+					articlevendu = new ArticleVendu(noArticleEnCours, nomArticle, prixVente, dateFinEncheres); 
 					articlesvendus.add(articlevendu); 
 					noArticlePrecedent = noArticleEnCours; 
 				
