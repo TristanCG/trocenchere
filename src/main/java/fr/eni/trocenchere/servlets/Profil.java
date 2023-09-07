@@ -25,6 +25,7 @@ public class Profil extends HttpServlet {
 		UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
         Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
 		request.setAttribute("utilisateur", utilisateur);
+		
 		if (utilisateur != null) {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/profil.jsp");

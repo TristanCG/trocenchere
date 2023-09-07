@@ -15,7 +15,9 @@ import java.util.List;
 
 import fr.eni.trocenchere.bll.ArticleVenduManager;
 import fr.eni.trocenchere.bll.CategorieManager;
+import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.bo.Utilisateur;
 
 public class Vendre extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +26,12 @@ public class Vendre extends HttpServlet {
 		List<Categorie> categories = CategorieManager.getInstance().selectAll();
 		System.out.println(categories);
 		request.setAttribute("categories", categories);
+
+		HttpSession session = request.getSession(); 
+		int noUtilisateur = (int) session.getAttribute("noUtilisateur"); 
+		UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
+        Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
+		request.setAttribute("utilisateur", utilisateur);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/vendre.jsp");
 		rd.forward(request, response);

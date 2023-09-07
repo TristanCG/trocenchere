@@ -42,11 +42,11 @@
 
 		<!-- TODO : PAR DEFAUT CE SERA LE LIEU DU VENDEUR  -->
 
-		<label for="rue">Rue :</label> <input type="text" name="rue" id="rue">
+		<label for="rue">Rue :</label> <input type="text" name="rue" id="rue" value="${utilisateur.rue }">
 		<br> <label for="codePostal">Code Postal :</label> <input
-			type="text" name="codePostal" id="codePostal"> <br> <label
+			type="text" name="codePostal" id="codePostal" value="${utilisateur.codePostal }"> <br> <label
 			for="ville">Ville :</label> <input type="text" name="ville"
-			id="ville"> <br> <input type="submit"> <a
+			id="ville" value="${utilisateur.ville }"> <br> <input type="submit"> <a
 			href="accueil">Annuler</a>
 
 	</form>
