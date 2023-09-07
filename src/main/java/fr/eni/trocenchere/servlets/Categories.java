@@ -21,7 +21,6 @@ public class Categories extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Categorie> categories = CategorieManager.getInstance().selectAll();
-		System.out.println(categories);
 		request.setAttribute("categories", categories);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/categories.jsp");
