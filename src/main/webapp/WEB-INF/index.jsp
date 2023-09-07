@@ -29,7 +29,7 @@
 				<li><a href="vendre">Vendre un article</a></li>
 				<li><a href="#">Mon profil</a></li>
 				<li><a href="deconnexion">Déconnexion</a></li>
-			</c:if>
+			</c:if> 
 		</ul>
 	</nav>
 	
