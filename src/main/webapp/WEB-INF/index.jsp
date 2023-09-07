@@ -35,7 +35,6 @@
 	
 	<h1>Troc Enchère - Accueil</h1>
 	
-	
 	<c:if test="${not empty sessionScope.noUtilisateur}">
 	    <div>Bienvenue, <c:out value="${sessionScope.pseudo}" /> vous êtes = <c:out value="${sessionScope.administrateur}" /></div>
 	</c:if>
