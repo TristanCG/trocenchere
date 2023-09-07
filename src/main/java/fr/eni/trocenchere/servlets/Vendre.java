@@ -43,7 +43,7 @@ public class Vendre extends HttpServlet {
 		System.out.println(dateFinEncheres);
 		prixInitial = Integer.valueOf(request.getParameter("prixInitial"));
 		System.out.println(prixInitial);
-		
+		int prixVente = prixInitial; 
 		HttpSession session = request.getSession();
 		Integer noUtilisateur = (Integer) session.getAttribute("noUtilisateur");
 		
@@ -84,8 +84,8 @@ public class Vendre extends HttpServlet {
 		}
 		
 		try {
-			ArticleVenduManager.getInstance().insert(nomArticle, description, dateDebut, dateFin, prixInitial, noUtilisateur ,noCategorie);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
+			ArticleVenduManager.getInstance().insert(nomArticle, description, dateDebut, dateFin, prixInitial, prixVente, noUtilisateur ,noCategorie);
+			RequestDispatcher rd = request.getRequestDispatcher("accueil");
 			rd.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -78,6 +78,11 @@ public class Utilisateur {
 
 	}
 
+	public Utilisateur(int noUtilisateur, String pseudo) {
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo; 
+	}
+
 	// Getters et Setters 
 	public int getNoUtilisateur() {
 		return noUtilisateur;
