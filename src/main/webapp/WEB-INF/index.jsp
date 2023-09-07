@@ -11,39 +11,39 @@
 
 
 <header>
-<h1>Troc Enchère - Accueil</h1>
-<c:if test="${empty sessionScope.noUtilisateur}">
-		<a href="connexion">S'inscrire - Se connecter</a>
-</c:if>
-<c:if test="${not empty sessionScope.noUtilisateur}">
-	<a href="#">Enchère</a>
-	<a href="vendre">Vendre un article</a>
-	<a href="#">Mon profil</a>
-	<a href="deconnexion">Déconnexion</a>
-
-    <div>Bienvenue, <c:out value="${sessionScope.pseudo}" /> vous êtes = <c:out value="${sessionScope.administrateur}" /></div>
-
-
-	<div>
-	</div>
-</c:if>
-
-<c:if test="${sessionScope.administrateur == true}">
-		A conditionner pour la page Admin
-		<a href="categories">Catégories</a>
-</c:if>
-
+	<c:if test="${sessionScope.administrateur == true}">
+		<nav class="admin">
+			<ul>
+				<li><a href="categories">Catégories</a></li>
+			</ul>
+		</nav>
+	</c:if>
+	
+	<nav>
+		<ul>
+			<c:if test="${empty sessionScope.noUtilisateur}">
+				<li><a href="connexion">S'inscrire - Se connecter</a></li>
+			</c:if>
+			<c:if test="${not empty sessionScope.noUtilisateur}">
+				<li><a href="#">Enchère</a></li>
+				<li><a href="vendre">Vendre un article</a></li>
+				<li><a href="#">Mon profil</a></li>
+				<li><a href="deconnexion">Déconnexion</a></li>
+			</c:if>
+		</ul>
+	</nav>
+	
+	<h1>Troc Enchère - Accueil</h1>
+	
+	
+	<c:if test="${not empty sessionScope.noUtilisateur}">
+	    <div>Bienvenue, <c:out value="${sessionScope.pseudo}" /> vous êtes = <c:out value="${sessionScope.administrateur}" /></div>
+	</c:if>
 </header>
 
 <section class="accueil">
 	<h2>Liste des enchères</h2>
-	<div class="container">
-		<div>
-			
-		
-		</div>
-		<div></div>
-	</div>
+
 </section>
 
 

@@ -8,8 +8,8 @@
 </head>
 <body>
 <form method="POST" action="connexion">
-	<label for="email">Identifiant :</label><br>
-	<input type="email" name="email" id="email"><br>
+	<label for="identifiant">Identifiant :</label><br>
+	<input type="text" name="identifiant" id="identifiant"><br>
 	<label for="motDePasse">Mot de passe :</label><br>
 	<input type="text" name="motDePasse" id="motDePasse"><br>
 	<input type="submit">

@@ -24,10 +24,10 @@ public class Connexion extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
+		String identifiant = request.getParameter("identifiant");
 		String motDePasse = request.getParameter("motDePasse");
 		UtilisateurDAO utilisateurDAO = new UtilisateurDAOJdbcImpl();
-		Utilisateur utilisateur = utilisateurDAO.connexionUtilisateur(email, motDePasse); 
+		Utilisateur utilisateur = utilisateurDAO.connexionUtilisateur(identifiant, motDePasse); 
 		if (utilisateur != null) {
 			HttpSession session = request.getSession();
 			
@@ -38,14 +38,12 @@ public class Connexion extends HttpServlet {
 	        session.setAttribute("email", utilisateur.getEmail());
 	        session.setAttribute("credit", utilisateur.getCredit());
 	        session.setAttribute("administrateur", utilisateur.isAdministrateur());
-
-	        System.out.println(session.getAttribute("email"));
 	        
 	        RequestDispatcher rd = request.getRequestDispatcher("accueil");
 			rd.forward(request, response);
 			
 		} else {
-			System.out.println("ko");
+			System.out.println("ko servlet connexion");
 		}
 	}
 }
