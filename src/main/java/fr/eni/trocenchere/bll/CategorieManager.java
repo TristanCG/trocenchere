@@ -7,6 +7,7 @@ import fr.eni.trocenchere.dal.DAOFactory;
 
 public class CategorieManager {
 	
+	//Singleton
 	private static CategorieManager instance ; 
 	
 	public static CategorieManager getInstance() {
@@ -23,6 +24,7 @@ public class CategorieManager {
 	private CategorieManager () {
 		
 	}
+	//Fin Singleton
 	
 	public List<Categorie> selectAll(){
 		return DAOFactory.getCategorieDAO().selectAll();

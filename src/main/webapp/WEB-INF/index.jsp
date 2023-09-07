@@ -27,7 +27,7 @@
 			<c:if test="${not empty sessionScope.noUtilisateur}">
 				<li><a href="#">Enchère</a></li>
 				<li><a href="vendre">Vendre un article</a></li>
-				<li><a href="#">Mon profil</a></li>
+				<li><a href="profil?noUtilisateur=<c:out value="${sessionScope.noUtilisateur}" />">Mon profil</a></li>
 				<li><a href="deconnexion">Déconnexion</a></li>
 			</c:if>
 		</ul>

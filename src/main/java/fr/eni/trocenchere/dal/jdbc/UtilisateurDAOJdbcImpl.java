@@ -3,6 +3,7 @@ package fr.eni.trocenchere.dal.jdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.UtilisateurDAO;
@@ -44,6 +45,36 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
         return utilisateur;
     }
 	
+	@Override
+	public Utilisateur profilUtilisateur(int noUtilisateur) {
+		PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Utilisateur utilisateur = null;
+        try (Connection cnx = ConnectionProvider.getConnection()) {
+            preparedStatement = cnx.prepareStatement("SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville "
+    				+ "FROM UTILISATEURS WHERE no_utilisateur = ?");
+            preparedStatement.setInt(1, noUtilisateur);
+
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                utilisateur = new Utilisateur();
+                utilisateur.setNoUtilisateur(resultSet.getInt("no_utilisateur"));
+                utilisateur.setPseudo(resultSet.getString("pseudo"));
+                utilisateur.setNom(resultSet.getString("nom"));
+                utilisateur.setPrenom(resultSet.getString("prenom"));
+                utilisateur.setEmail(resultSet.getString("email"));
+                utilisateur.setTelephone(resultSet.getString("telephone"));
+                utilisateur.setRue(resultSet.getString("rue"));
+                utilisateur.setCodePostal(resultSet.getString("code_postal"));
+                utilisateur.setVille(resultSet.getString("ville"));
+                System.out.println("ok UtilisateurDAOJDBCImpl");
+            }
+        } catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ko UtilisateurDAOJDBCImpl");
+        } 
+        return utilisateur;
+	}
 
 	@Override
 	public void insert(Utilisateur nouveauUtilisateur) {
@@ -70,4 +101,5 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			e.printStackTrace();
 		}
 	}
+
 }

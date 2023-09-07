@@ -1,7 +1,10 @@
 package fr.eni.trocenchere.bll;
 
+import java.util.List;
+
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAOFactory;
+import fr.eni.trocenchere.dal.UtilisateurDAO;
 
 public class UtilisateurManager {
 	//Singleton
@@ -29,5 +32,10 @@ public class UtilisateurManager {
 		
 		return nouveauUtilisateur;
 		
+	}
+
+	public Utilisateur getUtilisateurByNo(int noUtilisateur) {
+	    UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
+	    return utilisateurDAO.profilUtilisateur(noUtilisateur);
 	}
 }
