@@ -17,7 +17,7 @@
 		 <c:forEach items="${categories }" var="categories">
 			 <tr>
 			 	<td>${categories.noCategorie }</td>
-			 	<td>${categories.libelle }</td>
+			 	<td><a href="ajouter_categorie?noCategorie=${categories.noCategorie }">${categories.libelle }</a></td>
 			 </tr>
 		 </c:forEach>
 	 </table>
