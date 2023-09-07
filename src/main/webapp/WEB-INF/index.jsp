@@ -21,13 +21,16 @@
 	<a href="#">Mon profil</a>
 	<a href="#">Déconnexion</a>
 
-    <div>Bienvenue, <c:out value="${sessionScope.pseudo}" /></div>
+    <div>Bienvenue, <c:out value="${sessionScope.pseudo}" /> vous êtes = <c:out value="${sessionScope.administrateur}" /></div>
 
 
 	<div>
+	</div>
+</c:if>
+
+<c:if test="${sessionScope.administrateur == true}">
 		A conditionner pour la page Admin
 		<a href="categories">Catégories</a>
-	</div>
 </c:if>
 
 </header>
