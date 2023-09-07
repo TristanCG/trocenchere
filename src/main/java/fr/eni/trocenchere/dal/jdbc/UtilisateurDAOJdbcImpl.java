@@ -13,7 +13,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	@Override
 	public Utilisateur connexionUtilisateur(String email, String motDePasse) {
 		final String SELECT_CONNEXION = "SELECT no_utilisateur, pseudo, nom, prenom, email, mot_de_passe, credit, administrateur "
-				+ "FROM UTILISATEURS WHERE (email=? OR pseudo = ?)AND mot_de_passe=?";
+				+ "FROM UTILISATEURS WHERE email = ? AND mot_de_passe=?";
 		
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -22,7 +22,6 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
         try (Connection cnx = ConnectionProvider.getConnection()) {
             preparedStatement = cnx.prepareStatement(SELECT_CONNEXION);
             preparedStatement.setString(1, email);
-            //TODO email pseudo
             preparedStatement.setString(2, motDePasse);
 
             resultSet = preparedStatement.executeQuery();

@@ -18,11 +18,7 @@ public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-		
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
 		rd.forward(request, response);
 	}
@@ -49,7 +45,7 @@ public class Connexion extends HttpServlet {
 			rd.forward(request, response);
 			
 		} else {
-			
+			System.out.println("ko");
 		}
 	}
 }
