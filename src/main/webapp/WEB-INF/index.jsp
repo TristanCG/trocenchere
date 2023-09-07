@@ -19,7 +19,7 @@
 	<a href="#">Enchère</a>
 	<a href="vendre">Vendre un article</a>
 	<a href="#">Mon profil</a>
-	<a href="#">Déconnexion</a>
+	<a href="deconnexion">Déconnexion</a>
 
     <div>Bienvenue, <c:out value="${sessionScope.pseudo}" /> vous êtes = <c:out value="${sessionScope.administrateur}" /></div>
 

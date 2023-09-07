@@ -79,4 +79,14 @@
     <servlet-name>AjouterCategorie</servlet-name>
     <url-pattern>/ajouter_categorie</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Deconnexion</display-name>
+    <servlet-name>Deconnexion</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.Deconnexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deconnexion</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
 </web-app>
