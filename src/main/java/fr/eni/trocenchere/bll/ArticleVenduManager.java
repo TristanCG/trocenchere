@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import fr.eni.trocenchere.bo.ArticleVendu;
+import fr.eni.trocenchere.bo.Retrait;
 import fr.eni.trocenchere.dal.DAOFactory;
 
 public class ArticleVenduManager {
@@ -24,12 +25,11 @@ public class ArticleVenduManager {
 	//Fin Singleton
 	
 	public ArticleVendu insert(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
-		ArticleVendu nouveauArticleVendu = new ArticleVendu (nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, noUtilisateur ,noCategorie); 
-		//Ici on retouve le constructeur de ArticleVendu
-		
+		ArticleVendu nouveauArticleVendu = new ArticleVendu (nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, noUtilisateur, noCategorie); 
+
 		System.out.println(nouveauArticleVendu);
 		
-		DAOFactory.getArticleVenduDAO().insert(nouveauArticleVendu);
+		nouveauArticleVendu = DAOFactory.getArticleVenduDAO().insert(nouveauArticleVendu);
 		
 		return nouveauArticleVendu;
 	}
@@ -37,5 +37,14 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> selectAll() {
 		return DAOFactory.getArticleVenduDAO().selectAll(); 
 	}
+
+	public void insert(ArticleVendu article, String rue, String codePostal, String ville) {
+		Retrait nouveauRetrait = new Retrait(rue, codePostal, ville);
+		System.out.println("Nouveau Retrait ArticleVenduManager");
+		nouveauRetrait.setArticleVendu(article);
+		DAOFactory.getArticleVenduDAO().insert(nouveauRetrait);
+		
+	}
+
 
 }

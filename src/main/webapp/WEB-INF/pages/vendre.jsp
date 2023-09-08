@@ -20,9 +20,9 @@
 	<form method="POST" action="vendre">
 
 		<label for="nomArticle">Article :</label> <input type="text"
-			name="nomArticle" id="nomArticle"> <br> <label
+			name="nomArticle" id="nomArticle" value="test"> <br> <label
 			for="description">Description :</label>
-		<textarea id="description" name="description" rows="5" cols="35"></textarea>
+		<textarea id="description" name="description" rows="5" cols="35">test</textarea>
 	
 		<br> <label for="categorie">Catégorie :</label> 
 		<select name="categorie" id="categorie">
@@ -32,11 +32,11 @@
 		</select>
 		
 		<br> <input type="file" /> <br> <label for="prixInitial">Mise
-			à prix :</label> <input type="number" id="prixInitial" name="prixInitial" />
+			à prix :</label> <input type="number" id="prixInitial" name="prixInitial" value="150"/>
 		<br> <label for="dateDebutEncheres">Début de l'enchère :</label>
-		<input type="date" id="dateDebutEncheres" name="dateDebutEncheres"/>
+		<input type="date" id="dateDebutEncheres" name="dateDebutEncheres" value="2023-09-08"/>
 		<br> <label for="dateFinEncheres">Fin de l'enchère :</label> <input
-			type="date" id="dateFinEncheres" name="dateFinEncheres"/> <br>
+			type="date" id="dateFinEncheres" name="dateFinEncheres" value="2023-09-09"/> <br>
 
 		<h2>Retrait</h2>
 

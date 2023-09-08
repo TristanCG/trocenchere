@@ -11,12 +11,15 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.trocenchere.bll.ArticleVenduManager;
 import fr.eni.trocenchere.bll.CategorieManager;
 import fr.eni.trocenchere.bll.UtilisateurManager;
+import fr.eni.trocenchere.bo.ArticleVendu;
 import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.bo.Retrait;
 import fr.eni.trocenchere.bo.Utilisateur;
 
 public class Vendre extends HttpServlet {
@@ -42,7 +45,7 @@ public class Vendre extends HttpServlet {
 		int prixInitial = 0;  
 		int noCategorie = 0; 
 
-		//1. On récupère les paramètres du formulaire
+		//1. On récupère les paramètres du formulaire pour l'article 
 		String nomArticle = request.getParameter("nomArticle");
 		String description = request.getParameter("description");
 		String dateDebutEncheres = request.getParameter("dateDebutEncheres");
@@ -52,15 +55,11 @@ public class Vendre extends HttpServlet {
 		prixInitial = Integer.valueOf(request.getParameter("prixInitial"));
 		System.out.println(prixInitial);
 		int prixVente = prixInitial; 
-		HttpSession session = request.getSession();
-		Integer noUtilisateur = (Integer) session.getAttribute("noUtilisateur");
 		
-		if (noUtilisateur != null) {
-		    // Vous avez récupéré le noUtilisateur avec succès depuis la session
-		    // Vous pouvez l'utiliser dans votre code pour enregistrer l'article
-		} else {
-		    // Gérer le cas où l'utilisateur n'est pas connecté
-		}
+		HttpSession session = request.getSession();
+		
+		Integer noUtilisateur = (Integer) session.getAttribute("noUtilisateur");
+
 		System.out.println(noUtilisateur);
 		
 		String categorie = request.getParameter("categorie");
@@ -90,15 +89,41 @@ public class Vendre extends HttpServlet {
 			System.out.println("Erreur date fin enchère");
 
 		}
-		
+		ArticleVendu article = null;
 		try {
-			ArticleVenduManager.getInstance().insert(nomArticle, description, dateDebut, dateFin, prixInitial, prixVente, noUtilisateur ,noCategorie);
-			RequestDispatcher rd = request.getRequestDispatcher("accueil");
-			rd.forward(request, response);
+		   article = ArticleVenduManager.getInstance().insert(nomArticle, description, dateDebut, dateFin, prixInitial, prixInitial, noUtilisateur, noCategorie);			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Erreur insertion date");
 		}
+		System.out.println(article);
+		HttpSession session1 = request.getSession(); 
+		int noUtilisateur1 = (int) session1.getAttribute("noUtilisateur"); 
+		UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
+        Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur1);
+		request.setAttribute("utilisateur", utilisateur);
+		
+		System.out.println(utilisateur.getEmail());
+		
+		String rue = request.getParameter("rue");
+		String codePostal = request.getParameter("codePostal");
+		String ville = request.getParameter("ville");
+		
+		if(!(request.getParameter("rue").equalsIgnoreCase(utilisateur.getRue())) || 
+			!(request.getParameter("codePostal").equalsIgnoreCase(utilisateur.getCodePostal())) || 
+			!(request.getParameter("ville").equalsIgnoreCase(utilisateur.getVille())) ) {
+			
+			System.out.println("condition ok");
+			try {
+				ArticleVenduManager.getInstance().insert(article, rue, codePostal, ville);
+				System.out.println("Try ok");
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("erreur récupération données formulaire");
+			}
+		}
+		   RequestDispatcher rd = request.getRequestDispatcher("accueil");
+		   rd.forward(request, response);
+		
 		//doGet(request, response);
 	}
 

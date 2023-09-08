@@ -3,11 +3,14 @@ package fr.eni.trocenchere.dal;
 import java.util.List;
 
 import fr.eni.trocenchere.bo.ArticleVendu;
+import fr.eni.trocenchere.bo.Retrait;
 
 public interface ArticleVenduDAO {
 	
-	void insert (ArticleVendu nouveauArticleVendu);
+	ArticleVendu insert (ArticleVendu nouveauArticleVendu);
 
-	List<ArticleVendu> selectAll(); 
+	List<ArticleVendu> selectAll();
+
+	void insert(Retrait nouveauRetrait);
 	
 }

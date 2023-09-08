@@ -6,6 +6,7 @@ public class Retrait {
 	private String rue; 
 	private String codePostal;
 	private String ville;
+	private ArticleVendu articleVendu; 
 	
 	//Constructeurs 
 	public Retrait() {
@@ -20,6 +21,38 @@ public class Retrait {
 		this.ville = ville;
 	}
 	
+	
+
+	public Retrait(String rue, String codePostal, String ville) {
+		this();
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
+	
+	
+
+	public Retrait(int noArticle, String rue, String codePostal, String ville, ArticleVendu articleVendu) {
+		super();
+		this.noArticle = noArticle;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.articleVendu = articleVendu;
+	}
+	
+
+	public Retrait(ArticleVendu articleVendu, String rue, String codePostal, String ville) {
+		super();
+		this.articleVendu = articleVendu;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		
+	}
+
+	
+
 	//Getters et Setters 
 	public int getNoArticle() {
 		return noArticle;
@@ -45,6 +78,14 @@ public class Retrait {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+	public ArticleVendu getArticleVendu() {
+		return articleVendu;
+	}
+
+	public void setArticleVendu(ArticleVendu articleVendu) {
+		this.articleVendu = articleVendu;
+	}
+	
 	
 	//ToSring 
 	@Override
@@ -52,5 +93,6 @@ public class Retrait {
 		return "Retrait [noArticle=" + noArticle + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville
 				+ "]";
 	}
-	
+
+
 }
