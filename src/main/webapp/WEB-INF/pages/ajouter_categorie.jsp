@@ -19,6 +19,7 @@
 		</c:if>
     
 			<label for="libelle">Libelle :</label>
+			<input type="text" name="libelle" id="libelle" value="${categorie.libelle}">
 			<button type="submit" value="Enregistrer" class="btn btn-primary">Enregistrer</button>
 			
 
