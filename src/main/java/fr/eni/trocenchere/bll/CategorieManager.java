@@ -50,4 +50,9 @@ public class CategorieManager {
         CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
         categorieDAO.updateCategorie(categorie);
     }
+
+	public void delete(int noCategorie) {
+		DAOFactory.getCategorieDAO().delete(noCategorie);
+		
+	}
 }

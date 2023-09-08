@@ -12,6 +12,8 @@ public interface CategorieDAO {
 	
 	Categorie selectCategorieById(int noCategorie);
 
-	void updateCategorie(Categorie categorie);	
+	void updateCategorie(Categorie categorie);
+
+	void delete(int noCategorie);	
 	
 }

@@ -13,11 +13,13 @@
 		 <tr>
 		 	<th>Numéro</th>
 		 	<th>Nom</th>
+		 	<th>Supprimer</th>
 		 </tr>
 		 <c:forEach items="${categories }" var="categories">
 			 <tr>
 			 	<td>${categories.noCategorie }</td>
 			 	<td><a href="ajouter_categorie?noCategorie=${categories.noCategorie }">${categories.libelle }</a></td>
+				<td><a href="ajouter_categorie?supprimer=${categories.noCategorie }">Supprimer</a></td>
 			 </tr>
 		 </c:forEach>
 	 </table>

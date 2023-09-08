@@ -93,4 +93,17 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 		}
 	}
 
+	private final static String DELETE_CATEGORIE = "DELETE FROM CATEGORIES WHERE no_categorie = ?;";
+	@Override
+	public void delete(int noCategorie) {
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pStmt = cnx.prepareStatement(DELETE_CATEGORIE);
+			pStmt.setInt(1, noCategorie);
+			pStmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }

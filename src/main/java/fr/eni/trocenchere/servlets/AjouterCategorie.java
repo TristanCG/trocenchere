@@ -15,6 +15,13 @@ public class AjouterCategorie extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		if(request.getParameter("supprimer") != null) {
+			String supprimeNoCategorie = request.getParameter("supprimer");
+			int noCategorie = Integer.parseInt(supprimeNoCategorie);
+			CategorieManager.getInstance().delete(noCategorie);	
+			RequestDispatcher rd = request.getRequestDispatcher("categories");	
+		    rd.forward(request, response);
+		}
 		
 		if(request.getParameter("noCategorie") != null) {
 			int noCategorie = 0;
@@ -26,16 +33,17 @@ public class AjouterCategorie extends HttpServlet {
 			
 			String action = "update";
             request.setAttribute("action", action);
-		
+    		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/ajouter_categorie.jsp");
+    	    rd.forward(request, response);
 		}
 		
 		if(request.getParameter("noCategorie") == null) {
             String action = "insert";
             request.setAttribute("action", action);
+    		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/ajouter_categorie.jsp");
+    	    rd.forward(request, response);
         }
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/ajouter_categorie.jsp");
-	    rd.forward(request, response);
 		
 	}
 	
