@@ -12,8 +12,12 @@
 	<input type="text" name="identifiant" id="identifiant"><br>
 	<label for="motDePasse">Mot de passe :</label><br>
 	<input type="text" name="motDePasse" id="motDePasse"><br>
+	
+	<input type="checkbox" name="souvenir" id="souvenir"><label for="souvenir"> Se souvenir de moi</label><br>
 	<input type="submit">
 </form>
+<a href="#">Mot de passe oublié</a>
+
 <a href="creeruncompte">Créer un compte</a>
 </body>
 </html>
