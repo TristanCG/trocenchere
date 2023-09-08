@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +12,7 @@
   <body>
     <form action="ajouter_categorie" method="post" >
 			<label for="libelle">Libelle :</label>
-			<input type="text" name="libelle" id="libelle" >
+			<input type="text" name="libelle" id="libelle" value="${categorie.libelle}">
 			<button type="submit" value="Enregistrer" class="btn btn-primary">Enregistrer</button>
 			
 			<!--  <input type="submit" value="Enregistrer" >-->

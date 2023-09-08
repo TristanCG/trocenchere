@@ -3,6 +3,7 @@ package fr.eni.trocenchere.bll;
 import java.util.List;
 
 import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.dal.CategorieDAO;
 import fr.eni.trocenchere.dal.DAOFactory;
 
 public class CategorieManager {
@@ -37,5 +38,10 @@ public class CategorieManager {
 		DAOFactory.getCategorieDAO().insert(nouvelleCategorie);
 		
 		return nouvelleCategorie; 
+	}
+
+	public Categorie getCategorieByNo(int noCategorie) {
+		CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
+		return categorieDAO.selectCategorieById(noCategorie);
 	}
 }

@@ -8,14 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.CategorieDAO;
 
 public class CategorieDAOJdbcImpl implements CategorieDAO{
 
+	
+	
+	
 	private final static String SELECT_ALL ="SELECT * FROM CATEGORIES;";
-	private final static String INSERT_CATEGORIE = "INSERT INTO CATEGORIES(libelle)VALUES(?);";
-	
-	
 	@Override
 	public List<Categorie> selectAll(){
 		List<Categorie> categories = new ArrayList<Categorie>();
@@ -42,6 +43,7 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 		return categories;
 	}
 	
+	private final static String INSERT_CATEGORIE = "INSERT INTO CATEGORIES(libelle)VALUES(?);";
 	@Override
 	public void insert(Categorie nouvelleCategorie) {
 		
@@ -54,6 +56,27 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 			e.printStackTrace();
 		}
 		
+	}
+	
+	@Override
+	public Categorie selectCategorieById(int noCategorie) {
+	    ResultSet resultSet = null;
+	    Categorie categorie = null;
+	    try(Connection cnx = ConnectionProvider.getConnection()){
+	    	PreparedStatement pStmt = cnx.prepareStatement("SELECT * FROM CATEGORIES WHERE no_categorie = ?;");
+	    	pStmt.setInt(1, noCategorie);
+	    	resultSet = pStmt.executeQuery();
+	    	if(resultSet.next()) {
+	    		categorie = new Categorie();
+	    		categorie.setNoCategorie(resultSet.getInt("no_Categorie"));
+	    		categorie.setLibelle(resultSet.getString("libelle"));
+	    		System.out.println("ok categorieSelectById DAOJDBCImpl");
+	    	}
+	    } catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ko categorieSelectById DAOJDBCImpl");
+        } 
+        return categorie;
 	}
 }
 
