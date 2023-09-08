@@ -26,6 +26,7 @@ public class CategorieManager {
 		
 	}
 	//Fin Singleton
+
 	
 	public List<Categorie> selectAll(){
 		return DAOFactory.getCategorieDAO().selectAll();
@@ -43,5 +44,15 @@ public class CategorieManager {
 	public Categorie getCategorieByNo(int noCategorie) {
 		CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
 		return categorieDAO.selectCategorieById(noCategorie);
+	}
+
+    public void updateCategorie(Categorie categorie) {
+        CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
+        categorieDAO.updateCategorie(categorie);
+    }
+
+	public void delete(int noCategorie) {
+		DAOFactory.getCategorieDAO().delete(noCategorie);
+		
 	}
 }
