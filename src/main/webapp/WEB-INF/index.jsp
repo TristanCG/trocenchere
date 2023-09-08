@@ -57,7 +57,7 @@
 			</tr>
 			<c:forEach var="article" items="${articlesvendus}">
 				<tr>
-					<td>${article.nomArticle}</td>
+					<td><a href="article?noArticle=${article.noArticle}">${article.nomArticle}</a></td>
 					<td>${article.prixVente}</td>
 					<td>${article.dateFinEncheres}</td>
 					<td>${article.utilisateur.pseudo}</td>
