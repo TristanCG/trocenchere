@@ -12,5 +12,7 @@ public interface ArticleVenduDAO {
 	List<ArticleVendu> selectAll();
 
 	void insert(Retrait nouveauRetrait);
+
+	ArticleVendu encherir(int noArticle);
 	
 }

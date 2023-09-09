@@ -5,6 +5,7 @@ import java.util.List;
 
 import fr.eni.trocenchere.bo.ArticleVendu;
 import fr.eni.trocenchere.bo.Retrait;
+import fr.eni.trocenchere.dal.ArticleVenduDAO;
 import fr.eni.trocenchere.dal.DAOFactory;
 
 public class ArticleVenduManager {
@@ -44,6 +45,11 @@ public class ArticleVenduManager {
 		nouveauRetrait.setArticleVendu(article);
 		DAOFactory.getArticleVenduDAO().insert(nouveauRetrait);
 		
+	}
+
+	public ArticleVendu getArticleByNo(int noArticle) {
+		ArticleVenduDAO articleVenduDAO = DAOFactory.getArticleVenduDAO();
+		return articleVenduDAO.encherir(noArticle);
 	}
 
 
