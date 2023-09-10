@@ -102,4 +102,30 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 	}
 
+	private final static String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ? WHERE no_utilisateur = ?;";
+	@Override
+	public void updateUtilisateur(Utilisateur utilisateur) {
+		try(Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pStmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
+			System.out.println(utilisateur.getPseudo()+", "+utilisateur.getNom()+", "+utilisateur.getPrenom()+", "+utilisateur.getEmail()+", "+utilisateur.getTelephone()+", "+utilisateur.getRue()+", "+utilisateur.getCodePostal()+", "+utilisateur.getVille()+", "+utilisateur.getMotDePasse()+" WHERE "+utilisateur.getNoUtilisateur());
+			pStmt.setString(1, utilisateur.getPseudo());
+			pStmt.setString(2, utilisateur.getNom());
+			pStmt.setString(3, utilisateur.getPrenom());
+			pStmt.setString(4, utilisateur.getEmail());
+			pStmt.setString(5, utilisateur.getTelephone());
+			pStmt.setString(6, utilisateur.getRue());
+			pStmt.setString(7, utilisateur.getCodePostal());
+			pStmt.setString(8, utilisateur.getVille());
+			pStmt.setString(9, utilisateur.getMotDePasse());
+			pStmt.setInt(10, utilisateur.getNoUtilisateur());
+			
+			pStmt.executeUpdate();
+			System.out.println("Ok update user jdbc");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("KO update user jdbc");
+		}
+		
+	}
+
 }

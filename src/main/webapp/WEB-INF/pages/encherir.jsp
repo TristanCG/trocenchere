@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 			<th>Catégorie</th>
-			<td>${articleVendu.noCategorie}</td>
+			<td>${categorie.libelle}</td>
 		</tr>
 		<tr>
 			<th>Meilleur offre</th>
@@ -40,7 +40,7 @@
 		</tr>
 		<tr>
 			<th>Vendeur</th>
-			<td>${articleVendu.noUtilisateur}</td>
+			<td>${utilisateur.pseudo}</td>
 		</tr>
 	</table>
 	<a href="accueil">Retour</a>

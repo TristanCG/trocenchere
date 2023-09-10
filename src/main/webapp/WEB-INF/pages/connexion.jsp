@@ -46,7 +46,7 @@
 
 
 <!-- <section class="background-radial-gradient overflow-hidden"> -->
-<!--   <style> -->
+<!--   <style> 
 /*     .background-radial-gradient { */
 /*       background-color: hsl(218, 41%, 15%); */
 /*       background-image: radial-gradient(650px circle at 0% 0%, */
@@ -91,7 +91,7 @@
 
 <!--         <div class="card bg-glass"> -->
 <!--           <div class="card-body px-4 py-5 px-md-5"> -->
-<!--             <form> -->
+<!--             <form method="POST" action="connexion"> -->
 <!--               2 column grid layout with text inputs for the first and last names -->
 <!--               <div class="row"> -->
 <!--                 <div class="form-outline mb-4"> -->

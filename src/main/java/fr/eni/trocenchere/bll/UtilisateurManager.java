@@ -38,4 +38,10 @@ public class UtilisateurManager {
 	    UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	    return utilisateurDAO.profilUtilisateur(noUtilisateur);
 	}
+
+	public void updateUtilisateur(Utilisateur utilisateur) {
+		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
+		utilisateurDAO.updateUtilisateur(utilisateur);
+		
+	}
 }

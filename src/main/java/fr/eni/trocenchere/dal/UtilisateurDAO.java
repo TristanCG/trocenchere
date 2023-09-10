@@ -11,4 +11,6 @@ public interface UtilisateurDAO {
 
 	Utilisateur profilUtilisateur(int noUtilisateur);
 
+	void updateUtilisateur(Utilisateur utilisateur);
+
 }

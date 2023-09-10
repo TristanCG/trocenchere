@@ -47,7 +47,7 @@
 
 	
 	<c:if test="${sessionScope.noUtilisateur == utilisateur.noUtilisateur}">
-		<a href="#?noUtilisateur=<c:out value="${utilisateur.noUtilisateur}" />">Modifier</a>
+		<a href="creeruncompte?noUtilisateur=<c:out value="${utilisateur.noUtilisateur}" />">Modifier</a>
 	</c:if>
 	<a href="accueil">Accueil</a>
 
