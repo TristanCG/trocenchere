@@ -51,7 +51,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
         ResultSet resultSet = null;
         Utilisateur utilisateur = null;
         try (Connection cnx = ConnectionProvider.getConnection()) {
-            preparedStatement = cnx.prepareStatement("SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville,"
+            preparedStatement = cnx.prepareStatement("SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe "
     				+ "FROM UTILISATEURS WHERE no_utilisateur = ?");
             preparedStatement.setInt(1, noUtilisateur);
 
@@ -67,6 +67,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
                 utilisateur.setRue(resultSet.getString("rue"));
                 utilisateur.setCodePostal(resultSet.getString("code_postal"));
                 utilisateur.setVille(resultSet.getString("ville"));
+                utilisateur.setMotDePasse(resultSet.getString("mot_de_passe"));
                 System.out.println("ok UtilisateurDAOJDBCImpl");
             }
         } catch (Exception e) {
