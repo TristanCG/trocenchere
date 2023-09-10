@@ -51,7 +51,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
         ResultSet resultSet = null;
         Utilisateur utilisateur = null;
         try (Connection cnx = ConnectionProvider.getConnection()) {
-            preparedStatement = cnx.prepareStatement("SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville "
+            preparedStatement = cnx.prepareStatement("SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville,"
     				+ "FROM UTILISATEURS WHERE no_utilisateur = ?");
             preparedStatement.setInt(1, noUtilisateur);
 

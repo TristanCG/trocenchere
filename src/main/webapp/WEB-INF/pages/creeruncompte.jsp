@@ -106,7 +106,7 @@
 		</div>
     	<c:if test="${action eq 'update'}">
 			<div>
-				<a href="creeruncompte?supprimer=${utilisateur.noUtilisateur}">Supprimer</a>
+				<a href="creeruncompte?delete&noUtilisateur=${utilisateur.noUtilisateur}">Supprimer</a>
 			</div>
 		</c:if>
 		<div>
