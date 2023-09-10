@@ -44,4 +44,8 @@ public class UtilisateurManager {
 		utilisateurDAO.updateUtilisateur(utilisateur);
 		
 	}
+
+	public void delete(int noUtilisateur) {
+		DAOFactory.getUtilisateurDAO().delete(noUtilisateur);
+	}
 }

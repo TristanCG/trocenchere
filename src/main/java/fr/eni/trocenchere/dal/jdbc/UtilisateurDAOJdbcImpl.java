@@ -128,4 +128,17 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		
 	}
 
+	private final static String DELETE_UTILISATEUR ="DELETE FROM UTILISATEURS WHERE no_utilisateur =?;";
+	@Override
+	public void delete(int noUtilisateur) {
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pStmt = cnx.prepareStatement(DELETE_UTILISATEUR);
+			pStmt.setInt(1, noUtilisateur);
+			pStmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }

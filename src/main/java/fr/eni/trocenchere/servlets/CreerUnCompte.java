@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import fr.eni.trocenchere.bll.CategorieManager;
 import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.Utilisateur;
 
@@ -15,6 +16,15 @@ public class CreerUnCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if(request.getParameter("supprimer") != null){
+			String supprimeNoUtilisateur = request.getParameter("supprimer");
+			int noUtilisateur = Integer.parseInt(supprimeNoUtilisateur);
+			UtilisateurManager.getInstance().delete(noUtilisateur);	
+			RequestDispatcher rd = request.getRequestDispatcher("deconnexion");	
+		    rd.forward(request, response);
+		}
+		
 		if(request.getParameter("noUtilisateur") != null) {
 			String action = "update";
             request.setAttribute("action", action);

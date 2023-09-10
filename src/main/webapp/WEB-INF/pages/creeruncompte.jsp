@@ -73,6 +73,16 @@
 			<input type="text" name="ville" id="ville" value="${utilisateur.ville}">
 		</div>
 	</div>
+    <c:if test="${action eq 'update'}">
+		<div>
+			<div>
+				<label for="motDePasseActuel">Mot de passe Actuel:</label>
+				<input type="password" name="motDePasseActuel" id="motDePasseActuel" value="">
+			</div>
+			<div>
+			</div>
+		</div> 
+	</c:if>
 	<div>
 		<div>
 			<label for="motDePasse">Mot de passe :</label>
@@ -85,8 +95,20 @@
 	</div>
 	<div>
 		<div>
-			<input type="submit" value="Créer" name="creerUnCompte">
+			<c:choose>
+			    <c:when test="${action eq 'update'}">
+			        <input type="submit" value="Modifier" name="creerUnCompte">
+			    </c:when>
+			    <c:otherwise>
+					<input type="submit" value="Créer" name="creerUnCompte">
+			    </c:otherwise>
+			</c:choose>
 		</div>
+    	<c:if test="${action eq 'update'}">
+			<div>
+				<a href="creeruncompte?supprimer=${utilisateur.noUtilisateur}">Supprimer</a>
+			</div>
+		</c:if>
 		<div>
 			<a href="accueil">Annuler</a>
 		</div>

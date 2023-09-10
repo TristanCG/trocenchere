@@ -13,4 +13,6 @@ public interface UtilisateurDAO {
 
 	void updateUtilisateur(Utilisateur utilisateur);
 
+	void delete(int noUtilisateur);
+
 }
