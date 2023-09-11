@@ -13,18 +13,22 @@ import fr.eni.trocenchere.bll.CategorieManager;
 import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.ArticleVendu;
 import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.bo.Retrait;
 import fr.eni.trocenchere.bo.Utilisateur;
 
 public class Encherir extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//On va cehrcher les infos de la table Article selon son numéro
+		//On va cehrcher les infos de la table Article selon son numéro via le GET
 		int noArticle = 0;
 		noArticle = Integer.valueOf(request.getParameter("noArticle"));
 		ArticleVenduManager articleVenduManager = ArticleVenduManager.getInstance();
 		ArticleVendu articleVendu = articleVenduManager.getArticleByNo(noArticle);
 		request.setAttribute("articleVendu", articleVendu);
+		
+		Retrait retrait = articleVenduManager.getRetraitByNo(noArticle);
+		request.setAttribute("retrait", retrait);
 		
 		//On va chercher les infos de la table Catégorie selon son numéro
 		int noCategorie = 0;
@@ -39,6 +43,8 @@ public class Encherir extends HttpServlet {
 		UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
         Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
 		request.setAttribute("utilisateur", utilisateur);
+		
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/encherir.jsp");
 		rd.forward(request, response);
