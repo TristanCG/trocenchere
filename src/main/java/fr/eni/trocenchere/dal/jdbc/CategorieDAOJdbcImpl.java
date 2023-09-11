@@ -13,7 +13,6 @@ import fr.eni.trocenchere.dal.CategorieDAO;
 public class CategorieDAOJdbcImpl implements CategorieDAO {
 
 	private final static String SELECT_ALL = "SELECT * FROM CATEGORIES;";
-
 	@Override
 	public List<Categorie> selectAll() {
 		List<Categorie> categories = new ArrayList<Categorie>();
@@ -41,7 +40,6 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 	}
 
 	private final static String INSERT_CATEGORIE = "INSERT INTO CATEGORIES(libelle)VALUES(?);";
-
 	@Override
 	public void insert(Categorie nouvelleCategorie) {
 
@@ -76,10 +74,8 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 		}
 		return categorie;
 	}
-
 	
 	private final static String UPDATE_CATEGORIE = "UPDATE CATEGORIES SET libelle = ? WHERE no_categorie = ?;";
-
 	@Override
 	public void updateCategorie(Categorie categorie) {
 		try (Connection cnx = ConnectionProvider.getConnection()) {

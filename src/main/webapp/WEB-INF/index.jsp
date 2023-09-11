@@ -57,7 +57,7 @@
 			</tr>
 			<c:forEach var="article" items="${articlesvendus}">
 				<tr>
-					<td><a href="article?noArticle=${article.noArticle}">${article.nomArticle}</a></td>
+					<td><a href="encherir?noArticle=${article.noArticle}">${article.nomArticle}</a></td>
 					<td>${article.prixVente}</td>
 					<td>${article.dateFinEncheres}</td>
 					<td><a href="profil?noUtilisateur=${article.utilisateur.noUtilisateur}">${article.utilisateur.pseudo}</a></td>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Troc Enchere - Profil ${utilisateur.pseudo}</title>
 </head>
 <body>
 <h1>Profil</h1>
@@ -47,8 +47,9 @@
 
 	
 	<c:if test="${sessionScope.noUtilisateur == utilisateur.noUtilisateur}">
-		<a href="#?noUtilisateur=<c:out value="${utilisateur.noUtilisateur}" />">Modifier</a>
+		<a href="creeruncompte?update&noUtilisateur=<c:out value="${utilisateur.noUtilisateur}" />">Modifier</a>
 	</c:if>
+	<a href="accueil">Accueil</a>
 
 </body>
 </html>

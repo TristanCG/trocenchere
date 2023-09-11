@@ -47,5 +47,10 @@ public class ArticleVenduManager {
 		
 	}
 
+	public ArticleVendu getArticleByNo(int noArticle) {
+		ArticleVenduDAO articleVenduDAO = DAOFactory.getArticleVenduDAO();
+		return articleVenduDAO.encherir(noArticle);
+	}
+
 
 }

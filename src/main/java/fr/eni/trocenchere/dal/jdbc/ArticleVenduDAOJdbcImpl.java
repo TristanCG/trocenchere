@@ -101,6 +101,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 					String nomArticle = rs.getString("nom_article");
 					// TODO La c'est prix initial, il faudra le prix de vente actuel après
 					int prixVente = rs.getInt("prix_vente");
+					
+					//	Permet de convertir la donnée "Date" de la bdd en "Local Date"
 					LocalDate dateFinEncheres = rs.getDate("date_fin_encheres").toLocalDate();
 
 					articlevendu = new ArticleVendu(noArticleEnCours, nomArticle, prixVente, dateFinEncheres);
@@ -120,6 +122,36 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		}
 
 		return articlesvendus;
+	}
+
+	@Override
+	public ArticleVendu encherir(int noArticle) {
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		ArticleVendu articleVendu = null;
+		try (Connection cnx = ConnectionProvider.getConnection()){
+			preparedStatement = cnx.prepareStatement("SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?");
+			preparedStatement.setInt(1, noArticle);
+			rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				int noArticle1 = rs.getInt("no_article");
+				String nomArticle = rs.getString("nom_article");
+				String description = rs.getString("description");
+				LocalDate dateDebutEncheres = rs.getDate("date_debut_encheres").toLocalDate();
+				LocalDate dateFinEncheres = rs.getDate("date_fin_encheres").toLocalDate();
+				int prixInitial = rs.getInt("prix_initial");
+				int prixVente = rs.getInt("prix_vente");
+				int noUtilisateur = rs.getInt("no_utilisateur");
+				int noCategorie = rs.getInt("no_categorie");
+				articleVendu = new ArticleVendu(noArticle1, nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, noUtilisateur, noCategorie);
+				
+				System.out.println("Ok ArticleVenduDAOJDBCImpl");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Ko ArticleVenduDAOJDBCImpl");
+		}
+		return articleVendu;
 	}
 
 }
