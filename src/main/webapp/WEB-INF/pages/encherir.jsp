@@ -44,7 +44,7 @@
 		            ${utilisateur.rue} - ${utilisateur.codePostal} ${utilisateur.ville} 
 		        </c:if>
 		    </td>
-		</tr>
+		</tr> 
 		<tr>
 			<th>Vendeur</th>
 			<td>${utilisateur.pseudo}</td>
