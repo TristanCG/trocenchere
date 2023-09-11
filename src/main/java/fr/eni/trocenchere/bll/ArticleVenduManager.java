@@ -57,4 +57,5 @@ public class ArticleVenduManager {
 		return articleVenduDAO.selectRetraitByNoArticle(noArticle);
 	}
 
+	
 }

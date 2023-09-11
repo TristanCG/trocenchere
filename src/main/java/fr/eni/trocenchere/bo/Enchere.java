@@ -25,6 +25,11 @@ public class Enchere {
 		this.noUtilisateur = noUtilisateur;
 	}
 
+	public Enchere(int noEnchere, LocalDate dateEnchere, int montantEnchere, int noArticle, int noUtilisateur) {
+		this(); 
+		this.noEnchere = noEnchere; 
+	}
+
 	//Getters et Setters 
 	public int getNoEnchere() {
 		return noEnchere;

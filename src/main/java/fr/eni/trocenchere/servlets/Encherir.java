@@ -17,6 +17,7 @@ import fr.eni.trocenchere.bll.EnchereManager;
 import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.ArticleVendu;
 import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.bo.Enchere;
 import fr.eni.trocenchere.bo.Retrait;
 import fr.eni.trocenchere.bo.Utilisateur;
 
@@ -24,6 +25,8 @@ public class Encherir extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
 		//On va cehrcher les infos de la table Article selon son numéro via le GET
 		int noArticle = 0;
 		noArticle = Integer.valueOf(request.getParameter("noArticle"));
@@ -48,7 +51,12 @@ public class Encherir extends HttpServlet {
         Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
 		request.setAttribute("utilisateur", utilisateur); 
 		
-		
+//		//Récupérer les ingos de la table Enchere selon son noEnchere
+//		int noEnchere = 0;
+//		noEnchere = Integer.valueOf(request.getParameter("noEnchere"));
+//		EnchereManager enchereManager = EnchereManager.getInstance(); 
+//		Enchere enchere = enchereManager.getEnchereByNo(noEnchere);
+//		request.setAttribute("enchere", enchere);
 		
 		HttpSession session = request.getSession();
 		Integer noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
@@ -62,7 +70,7 @@ public class Encherir extends HttpServlet {
 				articleVendu.getDateDebutEncheres().isEqual(dateDuJour)) && 
 				(articleVendu.getDateFinEncheres().isAfter(dateDuJour) || 
 				articleVendu.getDateFinEncheres().isEqual(dateDuJour))) {
-				System.out.println("okkkkkkkkkkkkkkkkkkkkk");
+				System.out.println("Ok, on est bien situé entre les dates de fin et de début");
 				String condition = "ok";
 		        request.setAttribute("condition", condition);
 			}
@@ -71,19 +79,27 @@ public class Encherir extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/encherir.jsp");
 		rd.forward(request, response);
 	} 
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LocalDate dateDuJour = LocalDate.now();
-		int montantEnchere = 0;
-		montantEnchere = Integer.valueOf(request.getParameter("proposition"));
-		int noArticle = 0;
-		noArticle = Integer.valueOf(request.getParameter("noArticle"));
-		HttpSession session = request.getSession();
-		Integer noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
-		
-		EnchereManager.getInstance().insert(dateDuJour,montantEnchere,noArticle,noUtilisateurSession);
-		RequestDispatcher rd = request.getRequestDispatcher("encherir?noArticle="+noArticle);
-		rd.forward(request, response);
+	    LocalDate dateDuJour = LocalDate.now();
+	    int montantEnchere = Integer.valueOf(request.getParameter("proposition"));
+	    int noArticle = Integer.valueOf(request.getParameter("noArticle"));
+	    HttpSession session = request.getSession();
+	    Integer noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
+
+	    // Permet de récupérer le paramètre du montant de "Ma Proposition"
+	    ArticleVenduManager articleVenduManager = ArticleVenduManager.getInstance();
+	    ArticleVendu articleVendu = articleVenduManager.getArticleByNo(noArticle);
+	    int montantActuel = articleVendu.getPrixVente();
+
+	    //Condition si montant de l'utilisateur est bien supérieur au montant actuel (initial ou autres utilisateurs) 
+	    if (montantEnchere > montantActuel) {
+	        EnchereManager enchereManager = EnchereManager.getInstance();
+	        Enchere nouvelleEnchere = enchereManager.insert(dateDuJour, montantEnchere, noArticle, noUtilisateurSession);
+	        response.sendRedirect("encherir?noArticle=" + nouvelleEnchere.getNoArticle());
+	    } else {
+	        doGet(request, response);
+	    }
 	}
 
 }

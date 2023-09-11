@@ -14,8 +14,8 @@
 </head>
 <body>
 
-
 	<header>
+	<a href="accueil"><img src="images/auction.png" alt="logo pris en opensource pour Troc Enchère" width=5%/></a>
 		<c:if test="${sessionScope.administrateur == true}">
 			<nav class="admin">
 				<ul>
@@ -47,6 +47,8 @@
 
 	<section class="accueil">
 		<h2>Liste des enchères</h2>
+		
+
 
 		<table>
 			<tr>
