@@ -24,7 +24,7 @@ public class Connexion extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String identifiant = request.getParameter("identifiant");
+		String identifiant = request.getParameter("identifiant"); 
 		String motDePasse = request.getParameter("motDePasse");
 		UtilisateurDAO utilisateurDAO = new UtilisateurDAOJdbcImpl();
 		Utilisateur utilisateur = utilisateurDAO.connexionUtilisateur(identifiant, motDePasse); 
