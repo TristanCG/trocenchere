@@ -99,4 +99,14 @@
     <servlet-name>Profil</servlet-name>
     <url-pattern>/profil</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Encherir</display-name>
+    <servlet-name>Encherir</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.Encherir</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Encherir</servlet-name>
+    <url-pattern>/encherir</url-pattern>
+  </servlet-mapping>
 </web-app>

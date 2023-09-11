@@ -5,6 +5,7 @@ import java.util.List;
 
 import fr.eni.trocenchere.bo.ArticleVendu;
 import fr.eni.trocenchere.bo.Retrait;
+import fr.eni.trocenchere.dal.ArticleVenduDAO;
 import fr.eni.trocenchere.dal.DAOFactory;
 
 public class ArticleVenduManager {

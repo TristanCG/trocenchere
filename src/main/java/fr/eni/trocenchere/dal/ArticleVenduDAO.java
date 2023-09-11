@@ -10,7 +10,7 @@ public interface ArticleVenduDAO {
 	ArticleVendu insert (ArticleVendu nouveauArticleVendu);
 
 	List<ArticleVendu> selectAll();
-
+	
 	void insert(Retrait nouveauRetrait);
 	
 }
