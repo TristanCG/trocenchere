@@ -35,9 +35,16 @@
 			<td>${articleVendu.dateFinEncheres}</td>
 		</tr>
 		<tr>
-			<th>Retrait</th>
-			<td></td>
-		</tr>
+		    <th>Retrait</th>
+		    <td>
+		        <c:if test="${not empty retrait}">
+		            ${retrait.rue} - ${retrait.codePostal} ${retrait.ville}
+		        </c:if>
+		        <c:if test="${empty retrait}">
+		            ${utilisateur.rue} - ${utilisateur.codePostal} ${utilisateur.ville} 
+		        </c:if>
+		    </td> 
+		</tr> 
 		<tr>
 			<th>Vendeur</th>
 			<td>${utilisateur.pseudo}</td>

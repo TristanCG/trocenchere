@@ -42,13 +42,11 @@ public class Encherir extends HttpServlet {
 		noUtilisateur = articleVendu.getNoUtilisateur();
 		UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
         Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
-		request.setAttribute("utilisateur", utilisateur);
-		
-		
+		request.setAttribute("utilisateur", utilisateur); 
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/encherir.jsp");
 		rd.forward(request, response);
-	}
+	} 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

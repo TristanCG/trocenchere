@@ -19,7 +19,7 @@ public class ArticleVenduManager {
 		}
 		return instance;
 	}
-	
+	 
 	private ArticleVenduManager() {
 		
 	}
