@@ -29,7 +29,7 @@ public class Connexion extends HttpServlet {
 		UtilisateurDAO utilisateurDAO = new UtilisateurDAOJdbcImpl();
 		Utilisateur utilisateur = utilisateurDAO.connexionUtilisateur(identifiant, motDePasse); 
 		if (utilisateur != null) {
-			HttpSession session = request.getSession();
+			HttpSession session = request.getSession(); 
 			
 	        session.setAttribute("noUtilisateur", utilisateur.getNoUtilisateur());
 	        session.setAttribute("pseudo", utilisateur.getPseudo());
