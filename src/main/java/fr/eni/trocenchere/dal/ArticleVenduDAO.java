@@ -14,5 +14,7 @@ public interface ArticleVenduDAO {
 	void insert(Retrait nouveauRetrait);
 
 	ArticleVendu encherir(int noArticle);
+
+	Retrait selectRetraitByNoArticle();
 	
 }
