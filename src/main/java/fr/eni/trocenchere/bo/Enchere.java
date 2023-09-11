@@ -17,6 +17,14 @@ public class Enchere {
 		super();
 	}
 
+	public Enchere(LocalDate dateEnchere, int montantEnchere, int noArticle, int noUtilisateur) {
+		this();
+		this.dateEnchere = dateEnchere;
+		this.montantEnchere = montantEnchere;
+		this.noArticle = noArticle;
+		this.noUtilisateur = noUtilisateur;
+	}
+
 	//Getters et Setters 
 	public int getNoEnchere() {
 		return noEnchere;

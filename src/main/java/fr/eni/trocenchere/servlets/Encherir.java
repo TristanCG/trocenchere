@@ -6,10 +6,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
+import java.time.LocalDate;
 
 import fr.eni.trocenchere.bll.ArticleVenduManager;
 import fr.eni.trocenchere.bll.CategorieManager;
+import fr.eni.trocenchere.bll.EnchereManager;
 import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.ArticleVendu;
 import fr.eni.trocenchere.bo.Categorie;
@@ -44,13 +48,42 @@ public class Encherir extends HttpServlet {
         Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
 		request.setAttribute("utilisateur", utilisateur); 
 		
+		
+		
+		HttpSession session = request.getSession();
+		Integer noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
+		
+		LocalDate dateDuJour = LocalDate.now();
+
+		//Si on est connecté
+		if(noUtilisateurSession != null) {
+			//Si on est entre la date de début et la date de fin
+			if((articleVendu.getDateDebutEncheres().isBefore(dateDuJour) || 
+				articleVendu.getDateDebutEncheres().isEqual(dateDuJour)) && 
+				(articleVendu.getDateFinEncheres().isAfter(dateDuJour) || 
+				articleVendu.getDateFinEncheres().isEqual(dateDuJour))) {
+				System.out.println("okkkkkkkkkkkkkkkkkkkkk");
+				String condition = "ok";
+		        request.setAttribute("condition", condition);
+			}
+		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/encherir.jsp");
 		rd.forward(request, response);
 	} 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		LocalDate dateDuJour = LocalDate.now();
+		int montantEnchere = 0;
+		montantEnchere = Integer.valueOf(request.getParameter("proposition"));
+		int noArticle = 0;
+		noArticle = Integer.valueOf(request.getParameter("noArticle"));
+		HttpSession session = request.getSession();
+		Integer noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
+		
+		EnchereManager.getInstance().insert(dateDuJour,montantEnchere,noArticle,noUtilisateurSession);
+		RequestDispatcher rd = request.getRequestDispatcher("encherir?noArticle="+noArticle);
+		rd.forward(request, response);
 	}
 
 }
