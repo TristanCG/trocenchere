@@ -24,12 +24,12 @@ public class Connexion extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String identifiant = request.getParameter("identifiant"); 
+		String identifiant = request.getParameter("identifiant");
 		String motDePasse = request.getParameter("motDePasse");
 		UtilisateurDAO utilisateurDAO = new UtilisateurDAOJdbcImpl();
 		Utilisateur utilisateur = utilisateurDAO.connexionUtilisateur(identifiant, motDePasse); 
 		if (utilisateur != null) {
-			HttpSession session = request.getSession(); 
+			HttpSession session = request.getSession();
 			
 	        session.setAttribute("noUtilisateur", utilisateur.getNoUtilisateur());
 	        session.setAttribute("pseudo", utilisateur.getPseudo());

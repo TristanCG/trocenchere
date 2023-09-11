@@ -15,7 +15,7 @@ import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.ArticleVenduDAO;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
-
+	
 	private final static String INSERT_ARTICLE = "INSERT INTO ARTICLES_VENDUS (nom_article, description, "
 			+ "date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES(?,?,?,?,?,?,?,?);";
 
@@ -51,32 +51,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		
 		return nouveauArticleVendu;
 	}
-
-	
-	private final static String INSERT_RETRAIT = "INSERT INTO RETRAITS (no_article, rue, code_postal, ville) "
-			+ "VALUES (?,?,?,?);";
-
-	@Override
-	public void insert(Retrait nouveauRetrait) {
-		System.out.println("Avant l'insertion d'un retrait");
-		try (Connection cnx = ConnectionProvider.getConnection()) {
-			// Insertion de le retrait
-			PreparedStatement pStmt = cnx.prepareStatement(INSERT_RETRAIT);
-		    pStmt.setInt(1, nouveauRetrait.getArticleVendu().getNoArticle());
-			pStmt.setString(2, nouveauRetrait.getRue());
-			pStmt.setString(3, nouveauRetrait.getCodePostal());
-			pStmt.setString(4, nouveauRetrait.getVille());
-
-			System.out.println("Nouveau INSERT retrait ArticleVenduDAOJDBC");
-			pStmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Nouveau INSERT KO ArticleVenduDAOJDBC");
-		}
-		
-	}
-	
 	
 	private final static String SELECT_ALL_ARTICLE = "SELECT ARTICLES_VENDUS.*, UTILISATEURS.no_utilisateur, UTILISATEURS.pseudo, CATEGORIES.no_categorie\r\n"
 			+ "FROM ARTICLES_VENDUS\r\n"
@@ -153,5 +127,57 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		}
 		return articleVendu;
 	}
+	
+	private final static String INSERT_RETRAIT = "INSERT INTO RETRAITS (no_article, rue, code_postal, ville) "
+			+ "VALUES (?,?,?,?);";
 
+	@Override
+	public void insert(Retrait nouveauRetrait) {
+		System.out.println("Avant l'insertion d'un retrait");
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			// Insertion de le retrait
+			PreparedStatement pStmt = cnx.prepareStatement(INSERT_RETRAIT);
+		    pStmt.setInt(1, nouveauRetrait.getArticleVendu().getNoArticle());
+			pStmt.setString(2, nouveauRetrait.getRue());
+			pStmt.setString(3, nouveauRetrait.getCodePostal());
+			pStmt.setString(4, nouveauRetrait.getVille());
+
+			System.out.println("Nouveau INSERT retrait ArticleVenduDAOJDBC");
+			pStmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Nouveau INSERT KO ArticleVenduDAOJDBC");
+		}
+		
+	}
+	
+	@Override
+	public Retrait selectRetraitByNoArticle(int noArticle) {
+		PreparedStatement pStmt = null;
+        ResultSet rs = null;
+        Retrait retrait = null;
+        try (Connection cnx = ConnectionProvider.getConnection()) {
+        	pStmt = cnx.prepareStatement("SELECT * FROM RETRAITS WHERE no_article = ?;");
+        	pStmt.setInt(1, noArticle);
+        	rs = pStmt.executeQuery();
+            if (rs.next()) {
+                retrait = new Retrait();
+                retrait.setNoArticle(rs.getInt("no_article"));
+                retrait.setRue(rs.getString("rue")); 
+                retrait.setCodePostal(rs.getString("code_postal"));
+                retrait.setVille(rs.getString("ville"));
+            }
+        } catch (Exception e) {
+			e.printStackTrace();
+        } 
+        return retrait;
+	}
+	
+	
+	
+	
+	
+	
+	
 }

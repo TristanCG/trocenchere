@@ -10,11 +10,11 @@ public interface ArticleVenduDAO {
 	ArticleVendu insert (ArticleVendu nouveauArticleVendu);
 
 	List<ArticleVendu> selectAll();
-
+	
 	void insert(Retrait nouveauRetrait);
 
 	ArticleVendu encherir(int noArticle);
 
-	Retrait selectRetraitByNoArticle();
+	Retrait selectRetraitByNoArticle(int noArticle);
 	
 }
