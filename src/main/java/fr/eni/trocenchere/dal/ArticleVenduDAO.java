@@ -15,6 +15,6 @@ public interface ArticleVenduDAO {
 
 	ArticleVendu encherir(int noArticle);
 
-	Retrait selectRetraitByNoArticle();
+	Retrait selectRetraitByNoArticle(int noArticle);
 	
 }

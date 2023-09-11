@@ -36,7 +36,7 @@
 		</tr>
 		<tr>
 			<th>Retrait</th>
-			<td></td>
+			<td>${retrait.rue}</td>
 		</tr>
 		<tr>
 			<th>Vendeur</th>

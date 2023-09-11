@@ -44,8 +44,6 @@ public class Encherir extends HttpServlet {
         Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
 		request.setAttribute("utilisateur", utilisateur);
 		
-		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/encherir.jsp");
 		rd.forward(request, response);
 	}
