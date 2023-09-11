@@ -53,7 +53,7 @@ public class ArticleVenduManager {
 	}
 
 	public Retrait getRetraitByNo(int noArticle) {
-		ArticleVenduDAO articleVenduDAO = DAOFactory.getArticleVenduDAO()
+		ArticleVenduDAO articleVenduDAO = DAOFactory.getArticleVenduDAO();
 		return articleVenduDAO.selectRetraitByNoArticle();
 	}
 
