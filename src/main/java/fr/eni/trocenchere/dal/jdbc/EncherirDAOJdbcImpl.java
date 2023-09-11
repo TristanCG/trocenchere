@@ -29,21 +29,23 @@ public class EncherirDAOJdbcImpl implements EncherirDAO {
 	}
 	
 	@Override
-	public Enchere SelectEnchereByNo(int noEnchere) {
+	public Enchere SelectEnchereByNo(int noArticle) {
 		PreparedStatement pStmt = null;
         ResultSet rs = null;
         Enchere enchere = null;
 		try (Connection cnx = ConnectionProvider.getConnection()){
-			pStmt = cnx.prepareStatement("SELECT * FROM ENCHERES WHERE no_enchere = ?");
-			pStmt.setInt(1, noEnchere);
+			pStmt = cnx.prepareStatement("SELECT TOP 1 * FROM ENCHERES WHERE no_article = ? ORDER BY no_Enchere DESC");
+			pStmt.setInt(1, noArticle);
 			rs = pStmt.executeQuery();
 			if(rs.next()) {
-				int noEnchere1 = rs.getInt("no_Enchere");
+				int noEnchere = rs.getInt("no_Enchere");
 				LocalDate dateEnchere = rs.getDate("date_enchere").toLocalDate();
 				int montantEnchere = rs.getInt("montant_enchere"); 
-				int noArticle = rs.getInt("no_article");
+				int noArticle1 = rs.getInt("no_article");
 				int noUtilisateur = rs.getInt("no_utilisateur"); 
-				enchere = new Enchere(noEnchere1, dateEnchere, montantEnchere, noArticle, noUtilisateur);
+				enchere = new Enchere(noEnchere, dateEnchere, montantEnchere, noArticle1, noUtilisateur);
+				
+				System.out.println("Nouveau SELECT ENCHERE EnchereDAOJDBC- no enchère "+noEnchere+", montant "+montantEnchere+", no article "+noArticle1+", no utilisateur "+noUtilisateur);
 			}
         } catch (Exception e) {
 			e.printStackTrace();

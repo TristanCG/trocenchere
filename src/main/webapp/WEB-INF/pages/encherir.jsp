@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<th>Meilleur offre</th>
-			<td>${articleVendu.prixVente} pts par</td>
+			<td>${enchere.montantEnchere} pts par ${utilisateurEnchere.pseudo}</td>
 		</tr>
 		<tr>
 			<th>Mise à prix</th>

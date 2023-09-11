@@ -33,8 +33,8 @@ public class EnchereManager {
 	    return nouvelleEnchere;
 	}
 
-	public Enchere getEnchereByNo(int noEnchere) {
+	public Enchere getEnchereByNo(int noArticle) {
 		EncherirDAO encherirDAO = DAOFactory.getEnchereDAO();
-		return encherirDAO.SelectEnchereByNo(noEnchere); 
+		return encherirDAO.SelectEnchereByNo(noArticle); 
 	}
 }
