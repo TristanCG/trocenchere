@@ -43,7 +43,7 @@
 		        <c:if test="${empty retrait}">
 		            ${utilisateur.rue} - ${utilisateur.codePostal} ${utilisateur.ville} 
 		        </c:if>
-		    </td>
+		    </td> 
 		</tr> 
 		<tr>
 			<th>Vendeur</th>

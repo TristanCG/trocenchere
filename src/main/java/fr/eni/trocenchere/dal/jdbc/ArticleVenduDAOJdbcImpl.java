@@ -150,7 +150,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			System.out.println("Nouveau INSERT KO ArticleVenduDAOJDBC");
 		}
 		
-	}
+	} 
 	
 	@Override
 	public Retrait selectRetraitByNoArticle(int noArticle) {
