@@ -57,5 +57,9 @@ public class ArticleVenduManager {
 		return articleVenduDAO.selectRetraitByNoArticle(noArticle);
 	}
 
+	public List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche) {
+		return DAOFactory.getArticleVenduDAO().selectNomCategorie(nomRecherche, categorieRecherche); 
+	}
+
 	
 }

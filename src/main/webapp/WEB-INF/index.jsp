@@ -46,6 +46,23 @@
 
 
 	<section class="accueil">
+	<div>
+		<form action="accueil" method="POST">
+			<label for="nomRecherche">Filtres :</lablel>
+			<input type="text" name="nomRecherche" id="nomRecherche" placeholder="Le nom de l'article contient">
+			
+			<label for="categorieRecherche">Catégorie :</label>
+			<select name="categorieRecherche" id="categorieRecherche">
+				<c:forEach items="${categories}" var="categorie">
+					<option value="${categorie.noCategorie}">${categorie.libelle}</option>
+				</c:forEach>
+			</select>
+			
+			<input type="submit" value="Rechercher">
+		</form>
+	</div>
+	
+	
 		<h2>Liste des enchères</h2>
 		
 

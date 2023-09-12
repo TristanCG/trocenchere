@@ -16,5 +16,7 @@ public interface ArticleVenduDAO {
 	ArticleVendu encherir(int noArticle);
 
 	Retrait selectRetraitByNoArticle(int noArticle);
+
+	List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche);
 	
 }

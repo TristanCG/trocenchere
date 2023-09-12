@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import org.apache.catalina.ha.backend.Sender;
+
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.UtilisateurDAO;
 import fr.eni.trocenchere.dal.jdbc.UtilisateurDAOJdbcImpl;
@@ -39,8 +41,9 @@ public class Connexion extends HttpServlet {
 	        session.setAttribute("credit", utilisateur.getCredit());
 	        session.setAttribute("administrateur", utilisateur.isAdministrateur());
 	        
-	        RequestDispatcher rd = request.getRequestDispatcher("accueil");
-			rd.forward(request, response);
+	        response.sendRedirect("accueil");
+//	        RequestDispatcher rd = request.getRequestDispatcher("accueil");
+//			rd.forward(request, response);
 			
 		} else {
 			System.out.println("ko servlet connexion");
