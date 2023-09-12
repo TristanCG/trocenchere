@@ -17,7 +17,7 @@ public class ArticleVendu {
 	private int noCategorie;
 	private Utilisateur utilisateur; // Lien directionnel vers Utilisateur
 	private Categorie categories; // Lien directionnel vers Categorie
-	private Retrait retrait; // Lien UNIdirectionnel vers Retrait
+	private Retrait retrait; // Lien directionnel vers Retrait
 	private List<Enchere> encheres = new ArrayList<Enchere>(); // Un article a une liste d'enchères par les futurs
 
 	// Getters et Setters
@@ -92,8 +92,8 @@ public class ArticleVendu {
 	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
-	
-		public Utilisateur getUtilisateur() {
+
+	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
@@ -124,7 +124,6 @@ public class ArticleVendu {
 	public void setEncheres(List<Enchere> encheres) {
 		this.encheres = encheres;
 	}
-
 
 	// Constructeurs
 	public ArticleVendu() {
@@ -193,8 +192,7 @@ public class ArticleVendu {
 		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
 				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", prixInitial="
 				+ prixInitial + ", prixVente=" + prixVente + ", noUtilisateur=" + noUtilisateur + ", noCategorie="
-				+ noCategorie + ", categories=" + categories + ", retrait=" + retrait
-				+ ", encheres=" + encheres + "]";
+				+ noCategorie + ", categories=" + categories + ", retrait=" + retrait + ", encheres=" + encheres + "]";
 	}
 
 }

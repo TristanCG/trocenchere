@@ -9,8 +9,8 @@ public class Enchere {
 	private int montantEnchere;
 	private int noArticle;
 	private int noUtilisateur;
-	
-	//Constructeurs 
+
+	// Constructeurs
 	public Enchere() {
 		super();
 	}
@@ -20,7 +20,6 @@ public class Enchere {
 		this.noEnchere = noEnchere;
 	}
 
-
 	public Enchere(LocalDate dateEnchere, int montantEnchere, int noArticle, int noUtilisateur) {
 		this();
 		this.dateEnchere = dateEnchere;
@@ -29,18 +28,16 @@ public class Enchere {
 		this.noUtilisateur = noUtilisateur;
 	}
 
-
-
 	public Enchere(int noEnchere2, LocalDate dateEnchere2, int montantEnchere2, int noArticle1, int noUtilisateur2) {
 		this();
-		this.noEnchere = noEnchere2; 
+		this.noEnchere = noEnchere2;
 		this.dateEnchere = dateEnchere2;
 		this.montantEnchere = montantEnchere2;
 		this.noArticle = noArticle1;
 		this.noUtilisateur = noUtilisateur2;
 	}
 
-	//Getters et Setters 
+	// Getters et Setters
 	public int getNoEnchere() {
 		return noEnchere;
 	}
@@ -80,13 +77,12 @@ public class Enchere {
 	public void setNoUtilisateur(int noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
-	
-	//ToString 
+
+	// ToString
 	@Override
 	public String toString() {
 		return "Enchere [noEnchere=" + noEnchere + ", dateEnchere=" + dateEnchere + ", montantEnchere=" + montantEnchere
 				+ ", noArticle=" + noArticle + ", noUtilisateur=" + noUtilisateur + "]";
-	} 
+	}
 
-	
 }
