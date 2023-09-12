@@ -56,13 +56,21 @@ public class Encherir extends HttpServlet {
 		EnchereManager enchereManager = EnchereManager.getInstance(); 
 		Enchere enchere = enchereManager.getEnchereByNo(noArticle);
 		request.setAttribute("enchere", enchere);
+
+		if (enchere != null) {
+			// On récupère les infos de la personne avec la plus grande enchère
+			int noUtilisateurEnchere = 0;
+			noUtilisateurEnchere = enchere.getNoUtilisateur();
+			UtilisateurManager utilisateurManager1 = UtilisateurManager.getInstance();
+	        Utilisateur utilisateurEnchere = utilisateurManager1.getUtilisateurByNo(noUtilisateurEnchere);
+			request.setAttribute("utilisateurEnchere", utilisateurEnchere); 
+		} else {
+			System.out.println("Il n'y as pas d'enchère");
+		}
 		
-		// On récupère les infos de la personne avec la plus grande enchère
-		int noUtilisateurEnchere = 0;
-		noUtilisateurEnchere = enchere.getNoUtilisateur();
-		UtilisateurManager utilisateurManager1 = UtilisateurManager.getInstance();
-        Utilisateur utilisateurEnchere = utilisateurManager1.getUtilisateurByNo(noUtilisateurEnchere);
-		request.setAttribute("utilisateurEnchere", utilisateurEnchere); 
+		
+		
+	
 		
 		
 		HttpSession session = request.getSession();
