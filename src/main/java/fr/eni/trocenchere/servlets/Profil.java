@@ -21,7 +21,6 @@ public class Profil extends HttpServlet {
 		
 		int noUtilisateur = 0;
 		noUtilisateur = Integer.valueOf(request.getParameter("noUtilisateur"));
-		System.out.println(noUtilisateur);
 		UtilisateurManager utilisateurManager = UtilisateurManager.getInstance();
         Utilisateur utilisateur = utilisateurManager.getUtilisateurByNo(noUtilisateur);
 		request.setAttribute("utilisateur", utilisateur);
@@ -30,14 +29,12 @@ public class Profil extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/profil.jsp");
 		    rd.forward(request, response);
-			System.out.println("ok servlet profil");
 		} else {
 			System.out.println("ko servlet profil");
 		}
     }
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 }

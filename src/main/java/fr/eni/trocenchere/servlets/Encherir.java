@@ -79,7 +79,6 @@ public class Encherir extends HttpServlet {
 					|| articleVendu.getDateDebutEncheres().isEqual(dateDuJour))
 					&& (articleVendu.getDateFinEncheres().isAfter(dateDuJour)
 							|| articleVendu.getDateFinEncheres().isEqual(dateDuJour))) {
-				System.out.println("Ok, on est bien situé entre les dates de fin et de début");
 				String condition = "ok";
 				request.setAttribute("condition", condition);
 			}

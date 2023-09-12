@@ -21,11 +21,9 @@ public class Accueil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Categorie> categories = CategorieManager.getInstance().selectAll();
-		System.out.println(categories);
 		request.setAttribute("categories", categories);
 		
 		List<ArticleVendu> articlesvendus = ArticleVenduManager.getInstance().selectAll();
-		System.out.println(articlesvendus);
 		request.setAttribute("articlesvendus", articlesvendus);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
@@ -34,14 +32,10 @@ public class Accueil extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Categorie> categories = CategorieManager.getInstance().selectAll();
-		System.out.println(categories);
 		request.setAttribute("categories", categories);
 		
 		String nomRecherche = request.getParameter("nomRecherche");
 		int categorieRecherche = Integer.valueOf(request.getParameter("categorieRecherche"));
-		
-		System.out.println("Nom recherché :"+nomRecherche);
-		System.out.println("Catégorie recherché :"+categorieRecherche);
 		
 		List<ArticleVendu> articlesvendus=ArticleVenduManager.getInstance().selectNomCategorie(nomRecherche, categorieRecherche);
 		request.setAttribute("articlesvendus", articlesvendus);

@@ -46,7 +46,7 @@ public class Connexion extends HttpServlet {
 //			rd.forward(request, response);
 			
 		} else {
-			System.out.println("ko servlet connexion");
+			System.out.println("ko servlet connexion DoPost");
 		}
 	}
 }
