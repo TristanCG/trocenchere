@@ -55,17 +55,22 @@
 			<th>Vendeur</th>
 			<td>${utilisateur.pseudo}</td>
 		</tr>
+		
 		<c:if test="${condition eq 'ok'}">
 			<tr>
 				<form action="encherir" method="POST">
 					<th><label for="proposition">Ma proposition</label></th>
 					<td><input type="number" name="proposition" id="proposition" value="">
 					<input type="hidden" name="noArticle" value="${articleVendu.noArticle}"></td>
-					<td><input type="submit" value="Encherir"></td>
+					<td><input type="submit" value="Encherir"></td>		
 				</form>
 			</tr>
 		</c:if>
+		
 	</table>
-	<a href="accueil">Retour</a>
+	
+	<a href="encherir?supprimer=${articleVendu.noArticle}">Supprimer l'enchère</a>
+	<a href="accueil">Annuler</a>
+	
 </body>
 </html>

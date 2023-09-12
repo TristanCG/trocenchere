@@ -33,6 +33,7 @@ public class Enchere {
 
 	public Enchere(int noEnchere2, LocalDate dateEnchere2, int montantEnchere2, int noArticle1, int noUtilisateur2) {
 		this();
+		this.noEnchere = noEnchere2; 
 		this.dateEnchere = dateEnchere2;
 		this.montantEnchere = montantEnchere2;
 		this.noArticle = noArticle1;
@@ -79,7 +80,6 @@ public class Enchere {
 	public void setNoUtilisateur(int noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
-
 	
 	//ToString 
 	@Override

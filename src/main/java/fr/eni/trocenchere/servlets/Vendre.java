@@ -124,7 +124,6 @@ public class Vendre extends HttpServlet {
 		   RequestDispatcher rd = request.getRequestDispatcher("accueil");
 		   rd.forward(request, response);
 		
-		//doGet(request, response);
 	}
 
 }
