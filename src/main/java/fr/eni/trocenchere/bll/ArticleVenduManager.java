@@ -26,12 +26,8 @@ public class ArticleVenduManager {
 	//Fin Singleton
 	
 	public ArticleVendu insert(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
-		ArticleVendu nouveauArticleVendu = new ArticleVendu (nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, noUtilisateur, noCategorie); 
-
-		System.out.println(nouveauArticleVendu);
-		
+		ArticleVendu nouveauArticleVendu = new ArticleVendu (nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, noUtilisateur, noCategorie);
 		nouveauArticleVendu = DAOFactory.getArticleVenduDAO().insert(nouveauArticleVendu);
-		
 		return nouveauArticleVendu;
 	}
 	
@@ -41,10 +37,8 @@ public class ArticleVenduManager {
 
 	public void insert(ArticleVendu article, String rue, String codePostal, String ville) {
 		Retrait nouveauRetrait = new Retrait(rue, codePostal, ville);
-		System.out.println("Nouveau Retrait ArticleVenduManager");
 		nouveauRetrait.setArticleVendu(article);
 		DAOFactory.getArticleVenduDAO().insert(nouveauRetrait);
-		
 	}
 
 	public ArticleVendu getArticleByNo(int noArticle) {
@@ -60,6 +54,4 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche) {
 		return DAOFactory.getArticleVenduDAO().selectNomCategorie(nomRecherche, categorieRecherche); 
 	}
-
-	
 }

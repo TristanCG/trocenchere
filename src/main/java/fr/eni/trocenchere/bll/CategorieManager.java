@@ -7,38 +7,32 @@ import fr.eni.trocenchere.dal.CategorieDAO;
 import fr.eni.trocenchere.dal.DAOFactory;
 
 public class CategorieManager {
-	
-	//Singleton
-	private static CategorieManager instance ; 
-	
+
+	// Singleton
+	private static CategorieManager instance;
+
 	public static CategorieManager getInstance() {
-		
-		if (instance == null ) {
-			instance = new CategorieManager (); 
-		
+
+		if (instance == null) {
+			instance = new CategorieManager();
 		}
-		
-		return instance ; 
-		
+		return instance;
 	}
 
-	private CategorieManager () {
-		
-	}
-	//Fin Singleton
+	private CategorieManager() {
 
-	
-	public List<Categorie> selectAll(){
+	}
+	// Fin Singleton
+
+	public List<Categorie> selectAll() {
 		return DAOFactory.getCategorieDAO().selectAll();
 	}
-	
-	public Categorie insert (String libelle) {
-		
-		Categorie nouvelleCategorie = new Categorie(libelle); 
-		System.out.println(nouvelleCategorie); 
+
+	public Categorie insert(String libelle) {
+		Categorie nouvelleCategorie = new Categorie(libelle);
 		DAOFactory.getCategorieDAO().insert(nouvelleCategorie);
-		
-		return nouvelleCategorie; 
+
+		return nouvelleCategorie;
 	}
 
 	public Categorie getCategorieByNo(int noCategorie) {
@@ -46,13 +40,13 @@ public class CategorieManager {
 		return categorieDAO.selectCategorieById(noCategorie);
 	}
 
-    public void updateCategorie(Categorie categorie) {
-        CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
-        categorieDAO.updateCategorie(categorie);
-    }
+	public void updateCategorie(Categorie categorie) {
+		CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
+		categorieDAO.updateCategorie(categorie);
+	}
 
 	public void delete(int noCategorie) {
 		DAOFactory.getCategorieDAO().delete(noCategorie);
-		
+
 	}
 }
