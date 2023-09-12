@@ -121,8 +121,7 @@ public class Vendre extends HttpServlet {
 				System.out.println("erreur récupération données formulaire");
 			}
 		}
-		   RequestDispatcher rd = request.getRequestDispatcher("accueil");
-		   rd.forward(request, response);
+		response.sendRedirect("accueil");
 		
 	}
 

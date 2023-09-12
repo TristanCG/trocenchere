@@ -1,11 +1,13 @@
 package fr.eni.trocenchere.dal.jdbc;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,13 +99,69 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 		return articlesvendus;
 	}
+	
+	
+	@Override
+	public List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche) {
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		List<ArticleVendu> articlesVenduParNomCategorie = new ArrayList<ArticleVendu>();
+		String SELECT_NOM_CATEGORIE ="SELECT * FROM ARTICLES_VENDUS WHERE date_debut_encheres <= ? AND ? <= date_fin_encheres AND no_categorie = ?";
+		if(nomRecherche != null && !(nomRecherche.isEmpty())) {
+			SELECT_NOM_CATEGORIE +=" AND nom_article LIKE ?";
+		}
+		SELECT_NOM_CATEGORIE +=";";
+		System.out.println(SELECT_NOM_CATEGORIE);
+		
+		LocalDate date = java.time.LocalDate.now();
+		
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			preparedStatement = cnx.prepareStatement(SELECT_NOM_CATEGORIE);
+			
+			preparedStatement.setDate(1, java.sql.Date.valueOf(date));
+		    preparedStatement.setDate(2, java.sql.Date.valueOf(date));
+		    preparedStatement.setInt(3, categorieRecherche);
+		    if(nomRecherche != null && !(nomRecherche.isEmpty())) {
+			    preparedStatement.setString(4, "%"+nomRecherche+"%");
+			}
+			
+		    rs = preparedStatement.executeQuery();
+		    
+			int noArticlePrecedent = 0;
+			ArticleVendu articlevendu = null;
+			while (rs.next()) {
 
+				int noArticleEnCours = rs.getInt("no_article");
+				if (noArticleEnCours != noArticlePrecedent) {
+					String nomArticle = rs.getString("nom_article");
+					int prixVente = rs.getInt("prix_vente");
+					
+					LocalDate dateFinEncheres = rs.getDate("date_fin_encheres").toLocalDate();
+
+					articlevendu = new ArticleVendu(noArticleEnCours, nomArticle, prixVente, dateFinEncheres);
+					articlesVenduParNomCategorie.add(articlevendu);
+					noArticlePrecedent = noArticleEnCours;
+
+				}
+				int noUtilisateur = rs.getInt("no_utilisateur");
+				System.out.println("no utilisateur article vendu dao jdbc select date nom  : "+noUtilisateur);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return articlesVenduParNomCategorie;
+	}
+	
+	
 	@Override
 	public ArticleVendu encherir(int noArticle) {
 		PreparedStatement preparedStatement = null;
 		ResultSet rs = null;
 		ArticleVendu articleVendu = null;
 		try (Connection cnx = ConnectionProvider.getConnection()){
+			
 			preparedStatement = cnx.prepareStatement("SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?");
 			preparedStatement.setInt(1, noArticle);
 			rs = preparedStatement.executeQuery();
@@ -130,7 +188,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	
 	private final static String INSERT_RETRAIT = "INSERT INTO RETRAITS (no_article, rue, code_postal, ville) "
 			+ "VALUES (?,?,?,?);";
-
 	@Override
 	public void insert(Retrait nouveauRetrait) {
 		System.out.println("Avant l'insertion d'un retrait");
