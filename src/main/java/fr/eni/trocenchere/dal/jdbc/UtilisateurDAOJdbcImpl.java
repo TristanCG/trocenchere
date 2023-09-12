@@ -68,12 +68,10 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
                 utilisateur.setCodePostal(resultSet.getString("code_postal"));
                 utilisateur.setVille(resultSet.getString("ville"));
                 utilisateur.setMotDePasse(resultSet.getString("mot_de_passe"));
-                System.out.println("ok UtilisateurDAOJDBCImpl");
             }
         } catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ko UtilisateurDAOJDBCImpl");
-        } 
+		} 
         return utilisateur;
 	}
 
@@ -108,7 +106,6 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	public void updateUtilisateur(Utilisateur utilisateur) {
 		try(Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pStmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
-			System.out.println(utilisateur.getPseudo()+", "+utilisateur.getNom()+", "+utilisateur.getPrenom()+", "+utilisateur.getEmail()+", "+utilisateur.getTelephone()+", "+utilisateur.getRue()+", "+utilisateur.getCodePostal()+", "+utilisateur.getVille()+", "+utilisateur.getMotDePasse()+" WHERE "+utilisateur.getNoUtilisateur());
 			pStmt.setString(1, utilisateur.getPseudo());
 			pStmt.setString(2, utilisateur.getNom());
 			pStmt.setString(3, utilisateur.getPrenom());
@@ -121,12 +118,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pStmt.setInt(10, utilisateur.getNoUtilisateur());
 			
 			pStmt.executeUpdate();
-			System.out.println("Ok update user jdbc");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("KO update user jdbc");
-		}
-		
+		}	
 	}
 
 	private final static String DELETE_UTILISATEUR ="DELETE FROM UTILISATEURS WHERE no_utilisateur =?;";
@@ -139,7 +133,5 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
-
 }

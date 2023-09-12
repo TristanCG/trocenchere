@@ -11,6 +11,7 @@ import fr.eni.trocenchere.dal.EncherirDAO;
 public class EncherirDAOJdbcImpl implements EncherirDAO {
 
 	private final static String INSERT_ENCHERE = "INSERT INTO ENCHERES(date_enchere, montant_enchere, no_article, no_utilisateur) VALUES(?,?,?,?);";
+
 	@Override
 	public void insert(Enchere nouvelleEnchere) {
 		try (Connection cnx = ConnectionProvider.getConnection()) {
@@ -19,38 +20,34 @@ public class EncherirDAOJdbcImpl implements EncherirDAO {
 			pStmt.setInt(2, nouvelleEnchere.getMontantEnchere());
 			pStmt.setInt(3, nouvelleEnchere.getNoArticle());
 			pStmt.setInt(4, nouvelleEnchere.getNoUtilisateur());
-			
-			System.out.println("Nouveau INSERT ENCHERE EnchereDAOJDBC");
+
 			pStmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("KO Nouveau INSERT ENCHERE EnchereDAOJDBC");
 		}
 	}
-	
+
 	@Override
 	public Enchere SelectEnchereByNo(int noArticle) {
 		PreparedStatement pStmt = null;
-        ResultSet rs = null;
-        Enchere enchere = null;
-		try (Connection cnx = ConnectionProvider.getConnection()){
+		ResultSet rs = null;
+		Enchere enchere = null;
+		try (Connection cnx = ConnectionProvider.getConnection()) {
 			pStmt = cnx.prepareStatement("SELECT TOP 1 * FROM ENCHERES WHERE no_article = ? ORDER BY no_Enchere DESC");
 			pStmt.setInt(1, noArticle);
 			rs = pStmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				int noEnchere = rs.getInt("no_Enchere");
 				LocalDate dateEnchere = rs.getDate("date_enchere").toLocalDate();
-				int montantEnchere = rs.getInt("montant_enchere"); 
+				int montantEnchere = rs.getInt("montant_enchere");
 				int noArticle1 = rs.getInt("no_article");
-				int noUtilisateur = rs.getInt("no_utilisateur"); 
+				int noUtilisateur = rs.getInt("no_utilisateur");
 				enchere = new Enchere(noEnchere, dateEnchere, montantEnchere, noArticle1, noUtilisateur);
-				
-				System.out.println("Nouveau SELECT ENCHERE EnchereDAOJDBC- no enchère "+noEnchere+", montant "+montantEnchere+", no article "+noArticle1+", no utilisateur "+noUtilisateur);
 			}
-        } catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-        } 
-        return enchere;
+		}
+		return enchere;
 	}
 
 }
