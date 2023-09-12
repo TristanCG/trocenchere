@@ -102,47 +102,41 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		PreparedStatement preparedStatement = null;
 		ResultSet rs = null;
 		List<ArticleVendu> articlesVenduParNomCategorie = new ArrayList<ArticleVendu>();
-		String SELECT_NOM_CATEGORIE = "SELECT * FROM ARTICLES_VENDUS WHERE no_categorie = ?";
+		String SELECT_NOM_CATEGORIE =  "SELECT ARTICLES_VENDUS.*, UTILISATEURS.no_utilisateur, UTILISATEURS.pseudo, CATEGORIES.no_categorie "
+		        + "FROM ARTICLES_VENDUS "
+		        + "JOIN UTILISATEURS ON ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur "
+		        + "JOIN CATEGORIES ON ARTICLES_VENDUS.no_categorie = CATEGORIES.no_categorie "
+		        + "WHERE CATEGORIES.no_categorie = ?";
+
 		
-		if (nomRecherche != null && !(nomRecherche.isEmpty())) {
-			SELECT_NOM_CATEGORIE += " AND nom_article LIKE ?";
-		}
-		
-		if(noUtilisateurSession != 0) {
-			// Achats
-			if(typeRecherche.equals("achats")) {
-				// Enchère ouvertes
-				if(achats1 != null && !(achats1.isEmpty())) {
-					SELECT_NOM_CATEGORIE += " AND date_debut_encheres <= ? AND ? <= date_fin_encheres";
-				}
-				// Mes enchères
-				if(achats2 != null && !(achats2.isEmpty())) {
-					SELECT_NOM_CATEGORIE += " AND no_utilisateur = ?";
-				}
-				// Mes enchères remportés
-				if(achats3 != null && !(achats3.isEmpty())) {
-					SELECT_NOM_CATEGORIE += " AND ? >= date_fin_encheres";
-				}
-			}
-			
-			//Ventes
-			if(typeRecherche.equals("ventes")) {
-				SELECT_NOM_CATEGORIE += " AND no_utilisateur = ?";
-				
-				// Mes ventes en cours
-				if(ventes1 != null && !(ventes1.isEmpty())) {
-					SELECT_NOM_CATEGORIE += " AND date_debut_encheres <= ? AND ? <= date_fin_encheres";
-				}
-				// Mes ventes non débutées
-				if(ventes2 != null && !(ventes2.isEmpty())) {
-					SELECT_NOM_CATEGORIE += " AND date_debut_encheres > ?";
-				}
-				// Ventes terminées
-				if(ventes3 != null && !(ventes3.isEmpty())) {
-					SELECT_NOM_CATEGORIE += " AND ? > date_fin_encheres";
-				}
-			}
-		}
+		 if (nomRecherche != null && !nomRecherche.isEmpty()) {
+		        SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.nom_article LIKE ?";
+		    }
+		    
+		    if (typeRecherche.equals("achats")) {
+		        if (achats1 != null && !achats1.isEmpty()) {
+		            SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.date_debut_encheres <= ? AND ? <= ARTICLES_VENDUS.date_fin_encheres";
+		        }
+		        if (achats2 != null && !achats2.isEmpty()) {
+		            SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.no_utilisateur = ?";
+		        }
+		        if (achats3 != null && !achats3.isEmpty()) {
+		            SELECT_NOM_CATEGORIE += " AND ? >= ARTICLES_VENDUS.date_fin_encheres";
+		        }
+		    }
+		    
+		    if (typeRecherche.equals("ventes")) {
+		        SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.no_utilisateur = ?";
+		        if (ventes1 != null && !ventes1.isEmpty()) {
+		            SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.date_debut_encheres <= ? AND ? <= ARTICLES_VENDUS.date_fin_encheres";
+		        }
+		        if (ventes2 != null && !ventes2.isEmpty()) {
+		            SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.date_debut_encheres > ?";
+		        }
+		        if (ventes3 != null && !ventes3.isEmpty()) {
+		            SELECT_NOM_CATEGORIE += " AND ? > ARTICLES_VENDUS.date_fin_encheres";
+		        }
+		    }
 		SELECT_NOM_CATEGORIE += ";";
 		System.out.println(SELECT_NOM_CATEGORIE);
 		LocalDate date = java.time.LocalDate.now();
@@ -152,9 +146,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			int noParametre = 1 ;
 			preparedStatement.setInt(noParametre, categorieRecherche);
 			noParametre++;
-			
-			//preparedStatement.setDate(1, java.sql.Date.valueOf(date));
-			//preparedStatement.setDate(2, java.sql.Date.valueOf(date));
 			
 			if (nomRecherche != null && !(nomRecherche.isEmpty())) {
 				preparedStatement.setString(noParametre, "%"+nomRecherche+"%");
@@ -227,6 +218,10 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 				}
 				int noUtilisateur = rs.getInt("no_utilisateur");
+				String pseudo = rs.getString("pseudo");
+
+				Utilisateur utilisateur = new Utilisateur(noUtilisateur, pseudo);
+				articlevendu.setUtilisateur(utilisateur);
 			}
 
 		} catch (Exception e) {

@@ -43,19 +43,9 @@ public class Accueil extends HttpServlet {
 		String ventes1 = request.getParameter("ventes1");
 		String ventes2 = request.getParameter("ventes2");
 		String ventes3 = request.getParameter("ventes3");
-		System.out.println("categories ="+categories);
-		System.out.println("nomRecherche ="+nomRecherche);
-		System.out.println("categorieRecherche ="+categorieRecherche);
-		System.out.println("typeRecherche ="+typeRecherche);
-		System.out.println("achats1 ="+achats1);
-		System.out.println("achats2 ="+achats2);
-		System.out.println("achats3 ="+achats3);
-		System.out.println("ventes1 ="+ventes1);
-		System.out.println("ventes2 ="+ventes2);
-		System.out.println("ventes3 ="+ventes3);
 		
 		HttpSession session = request.getSession(false);
-		Integer noUtilisateurSession = null; // Déclarez la variable en dehors du bloc.
+		Integer noUtilisateurSession = null; 
 
 		if (session != null) {
 		    noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
@@ -64,11 +54,10 @@ public class Accueil extends HttpServlet {
 		        int noUtilisateur = noUtilisateurSession.intValue();
 		        System.out.println("Session trouvée, noUtilisateur = " + noUtilisateur);
 		    } else {
-		    	noUtilisateurSession=0;
+		    	noUtilisateurSession = 0;
 		    }
 		} else {
-		    // La session n'existe pas.
-		    // Vous pouvez choisir de gérer cela en conséquence ou simplement ignorer le code suivant.
+	    	noUtilisateurSession = 0;
 		}
 		
 		List<ArticleVendu> articlesvendus=ArticleVenduManager.getInstance().selectNomCategorie(nomRecherche, categorieRecherche, typeRecherche, achats1, achats2, achats3, ventes1, ventes2, ventes3, noUtilisateurSession);
