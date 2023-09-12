@@ -36,8 +36,42 @@ public class Accueil extends HttpServlet {
 		
 		String nomRecherche = request.getParameter("nomRecherche");
 		int categorieRecherche = Integer.valueOf(request.getParameter("categorieRecherche"));
+		String typeRecherche = request.getParameter("typeRecherche");
+		String achats1 = request.getParameter("achats1");
+		String achats2 = request.getParameter("achats2");
+		String achats3 = request.getParameter("achats3");
+		String ventes1 = request.getParameter("ventes1");
+		String ventes2 = request.getParameter("ventes2");
+		String ventes3 = request.getParameter("ventes3");
+		System.out.println("categories ="+categories);
+		System.out.println("nomRecherche ="+nomRecherche);
+		System.out.println("categorieRecherche ="+categorieRecherche);
+		System.out.println("typeRecherche ="+typeRecherche);
+		System.out.println("achats1 ="+achats1);
+		System.out.println("achats2 ="+achats2);
+		System.out.println("achats3 ="+achats3);
+		System.out.println("ventes1 ="+ventes1);
+		System.out.println("ventes2 ="+ventes2);
+		System.out.println("ventes3 ="+ventes3);
 		
-		List<ArticleVendu> articlesvendus=ArticleVenduManager.getInstance().selectNomCategorie(nomRecherche, categorieRecherche);
+		HttpSession session = request.getSession(false);
+		Integer noUtilisateurSession = null; // Déclarez la variable en dehors du bloc.
+
+		if (session != null) {
+		    noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
+
+		    if (noUtilisateurSession != null) {
+		        int noUtilisateur = noUtilisateurSession.intValue();
+		        System.out.println("Session trouvée, noUtilisateur = " + noUtilisateur);
+		    } else {
+		    	noUtilisateurSession=0;
+		    }
+		} else {
+		    // La session n'existe pas.
+		    // Vous pouvez choisir de gérer cela en conséquence ou simplement ignorer le code suivant.
+		}
+		
+		List<ArticleVendu> articlesvendus=ArticleVenduManager.getInstance().selectNomCategorie(nomRecherche, categorieRecherche, typeRecherche, achats1, achats2, achats3, ventes1, ventes2, ventes3, noUtilisateurSession);
 		request.setAttribute("articlesvendus", articlesvendus);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/index.jsp");

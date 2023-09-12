@@ -17,6 +17,6 @@ public interface ArticleVenduDAO {
 
 	Retrait selectRetraitByNoArticle(int noArticle);
 
-	List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche);
-	
+	List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche, String typeRecherche, String achats1, String achats2, String achats3, String ventes1, String ventes2, String ventes3, int noUtilisateurSession);
+
 }

@@ -98,28 +98,116 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 
 	@Override
-	public List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche) {
+	public List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche, String typeRecherche, String achats1, String achats2, String achats3, String ventes1, String ventes2, String ventes3, int noUtilisateurSession) {
 		PreparedStatement preparedStatement = null;
 		ResultSet rs = null;
 		List<ArticleVendu> articlesVenduParNomCategorie = new ArrayList<ArticleVendu>();
-		String SELECT_NOM_CATEGORIE = "SELECT * FROM ARTICLES_VENDUS WHERE date_debut_encheres <= ? AND ? <= date_fin_encheres AND no_categorie = ?";
+		String SELECT_NOM_CATEGORIE = "SELECT * FROM ARTICLES_VENDUS WHERE no_categorie = ?";
+		
 		if (nomRecherche != null && !(nomRecherche.isEmpty())) {
 			SELECT_NOM_CATEGORIE += " AND nom_article LIKE ?";
 		}
+		
+		if(noUtilisateurSession != 0) {
+			// Achats
+			if(typeRecherche.equals("achats")) {
+				// Enchère ouvertes
+				if(achats1 != null && !(achats1.isEmpty())) {
+					SELECT_NOM_CATEGORIE += " AND date_debut_encheres <= ? AND ? <= date_fin_encheres";
+				}
+				// Mes enchères
+				if(achats2 != null && !(achats2.isEmpty())) {
+					SELECT_NOM_CATEGORIE += " AND no_utilisateur = ?";
+				}
+				// Mes enchères remportés
+				if(achats3 != null && !(achats3.isEmpty())) {
+					SELECT_NOM_CATEGORIE += " AND ? >= date_fin_encheres";
+				}
+			}
+			
+			//Ventes
+			if(typeRecherche.equals("ventes")) {
+				SELECT_NOM_CATEGORIE += " AND no_utilisateur = ?";
+				
+				// Mes ventes en cours
+				if(ventes1 != null && !(ventes1.isEmpty())) {
+					SELECT_NOM_CATEGORIE += " AND date_debut_encheres <= ? AND ? <= date_fin_encheres";
+				}
+				// Mes ventes non débutées
+				if(ventes2 != null && !(ventes2.isEmpty())) {
+					SELECT_NOM_CATEGORIE += " AND date_debut_encheres > ?";
+				}
+				// Ventes terminées
+				if(ventes3 != null && !(ventes3.isEmpty())) {
+					SELECT_NOM_CATEGORIE += " AND ? > date_fin_encheres";
+				}
+			}
+		}
 		SELECT_NOM_CATEGORIE += ";";
-
+		System.out.println(SELECT_NOM_CATEGORIE);
 		LocalDate date = java.time.LocalDate.now();
 
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			preparedStatement = cnx.prepareStatement(SELECT_NOM_CATEGORIE);
-
-			preparedStatement.setDate(1, java.sql.Date.valueOf(date));
-			preparedStatement.setDate(2, java.sql.Date.valueOf(date));
-			preparedStatement.setInt(3, categorieRecherche);
+			int noParametre = 1 ;
+			preparedStatement.setInt(noParametre, categorieRecherche);
+			noParametre++;
+			
+			//preparedStatement.setDate(1, java.sql.Date.valueOf(date));
+			//preparedStatement.setDate(2, java.sql.Date.valueOf(date));
+			
 			if (nomRecherche != null && !(nomRecherche.isEmpty())) {
-				preparedStatement.setString(4, "%" + nomRecherche + "%");
+				preparedStatement.setString(noParametre, "%"+nomRecherche+"%");
+				noParametre++;
 			}
-
+			
+			if(noUtilisateurSession != 0) {
+				if(typeRecherche.equals("achats")) {
+					// Enchère ouvertes
+					if(achats1 != null && !(achats1.isEmpty())) {
+						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+					}
+					
+					// Mes enchères
+					if(achats2 != null && !(achats2.isEmpty())) {
+						preparedStatement.setInt(noParametre, noUtilisateurSession);
+						noParametre++;
+					}
+					// Mes enchères remportés
+					if(achats3 != null && !(achats3.isEmpty())) {
+						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+					}
+				}
+				
+				//Ventes
+				if(typeRecherche.equals("ventes")) {
+					preparedStatement.setInt(noParametre, noUtilisateurSession);
+					noParametre++;
+					
+					// Mes ventes en cours
+					if(ventes1 != null && !(ventes1.isEmpty())) {
+						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+					}
+					// Mes ventes non débutées
+					if(ventes2 != null && !(ventes2.isEmpty())) {
+						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+					}
+					// Ventes terminées
+					if(ventes3 != null && !(ventes3.isEmpty())) {
+						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+					}
+				}
+			}
+			
 			rs = preparedStatement.executeQuery();
 
 			int noArticlePrecedent = 0;
@@ -220,4 +308,5 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		}
 		return retrait;
 	}
+
 }

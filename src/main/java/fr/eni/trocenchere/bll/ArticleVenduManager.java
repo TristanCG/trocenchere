@@ -51,7 +51,8 @@ public class ArticleVenduManager {
 		return articleVenduDAO.selectRetraitByNoArticle(noArticle);
 	}
 
-	public List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche) {
-		return DAOFactory.getArticleVenduDAO().selectNomCategorie(nomRecherche, categorieRecherche); 
+	public List<ArticleVendu> selectNomCategorie(String nomRecherche, int categorieRecherche, String typeRecherche, String achats1, String achats2, String achats3, String ventes1, String ventes2, String ventes3, int noUtilisateurSession) {
+		return DAOFactory.getArticleVenduDAO().selectNomCategorie(nomRecherche, categorieRecherche, typeRecherche, achats1, achats2, achats3, ventes1, ventes2, ventes3, noUtilisateurSession); 
 	}
+
 }
