@@ -17,7 +17,38 @@
 	href="https://fonts.googleapis./css2?family=Marriweather&family=Raleway&display=swap"
 	rel="stylesheet">
 <meta charset="UTF-8">
-<title>Troc enchère</title>
+<title>Troc enchère</title><script>
+    // Sélectionnez les éléments radio
+    const achatsRadio = document.getElementById('achatsRecherche');
+    const ventesRadio = document.getElementById('ventesRecherche');
+
+    // Sélectionnez les divs à afficher/masquer
+    const achatsDiv = document.getElementById('achatsRecherche');
+    const ventesDiv = document.getElementById('ventesRecherche');
+
+    // Fonction pour afficher la div "achatsRecherche"
+    function afficherAchatsDiv() {
+        achatsDiv.style.display = 'block';
+        ventesDiv.style.display = 'none';
+    }
+
+    // Fonction pour afficher la div "ventesRecherche"
+    function afficherVentesDiv() {
+        achatsDiv.style.display = 'none';
+        ventesDiv.style.display = 'block';
+    }
+
+    // Ajoutez des écouteurs d'événements aux radios
+    achatsRadio.addEventListener('click', afficherAchatsDiv);
+    ventesRadio.addEventListener('click', afficherVentesDiv);
+
+    // Au chargement de la page, assurez-vous que la bonne div est affichée en fonction de la radio sélectionnée par défaut
+    if (achatsRadio.checked) {
+        afficherAchatsDiv();
+    } else if (ventesRadio.checked) {
+        afficherVentesDiv();
+    }
+</script>
 </head>
 
 <body>
@@ -141,5 +172,6 @@
 
 
 	</main>
+	
 </body>
 </html>
