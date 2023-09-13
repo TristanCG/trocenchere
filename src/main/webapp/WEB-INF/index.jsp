@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-	crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Troc enchère</title>
 </head>
@@ -77,26 +73,24 @@
 	
 	
 		<h2>Liste des enchères</h2>
-		
-
-
-		<table>
-			<tr>
-				<th>Nom de l'article</th>
-				<th>Prix de vente</th>
-				<th>Date de fin d'enchères</th>
-				<th>Pseudo de l'utilisateur</th>
-			</tr>
-			<c:forEach var="article" items="${articlesvendus}">
-				<tr>
-					<td><a href="encherir?noArticle=${article.noArticle}">${article.nomArticle}</a></td>
-					<td>${article.prixVente}</td>
-					<td>${article.dateFinEncheres}</td>
-					<td><a href="profil?noUtilisateur=${article.utilisateur.noUtilisateur}">${article.utilisateur.pseudo}</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-
+		   <div class="container">
+        		<div class="row">
+				<c:forEach var="article" items="${articlesvendus}">
+				    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+				        <div class="card" style="width: 18rem;">
+				            <img src="images/photo-enchere.jpg" class="card-img-top" alt="...">
+				            <div class="card-body">
+				                <h5 class="card-title">Nom de l'article : <a href="encherir?noArticle=${article.noArticle}">${article.nomArticle}</a></h5>
+				                <p class="card-text">Prix de vente : ${article.prixVente} crédits</p>
+				                <p class="card-text">Date de fin de l'enchère : ${article.dateFinEncheres}</p>
+				                <p>Pseudo du vendeur :</p>
+				                <a href="profil?noUtilisateur=${article.utilisateur.noUtilisateur}" class="btn btn-primary">${article.utilisateur.pseudo}</a>
+				            </div>
+				        </div>
+				    </div>
+				</c:forEach>
+			</div>
+		</div> 
 	</section>
 
 
