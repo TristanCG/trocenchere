@@ -12,24 +12,26 @@
 <div class="videTopBackgroundEmpty">
 </div>
 <main>
-	<a href="accueil"><img src="images/auction.png" alt="logo pris en opensource pour Troc Enchère" width=5%/></a>
-		
 	<header>
 		<nav>
+		<a href="accueil"><img src="images/auction.png" alt="logo pris en opensource pour Troc Enchère"/></a>
 			<ul>
 				<c:if test="${sessionScope.administrateur == true}">
 					<li><a href="categories">Catégories</a></li>
 				</c:if>
-				<c:if test="${empty sessionScope.noUtilisateur}">
-					<li><a href="connexion">S'inscrire - Se connecter</a></li>
-				</c:if>
+				
 				<c:if test="${not empty sessionScope.noUtilisateur}">
-					<li><a href="#">Enchère</a></li>
+					<li><a href="accueil">Enchère</a></li>
 					<li><a href="vendre">Vendre un article</a></li>
 					<li><a href="profil?noUtilisateur=<c:out value="${sessionScope.noUtilisateur}" />">Mon profil</a></li>
-					<li><a href="deconnexion">Déconnexion</a></li>
 				</c:if>
 			</ul>
+		<c:if test="${empty sessionScope.noUtilisateur}">
+			<li><a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a></li>
+		</c:if>
+		<c:if test="${not empty sessionScope.noUtilisateur}">
+			<a href="deconnexion"><img src="./images/deconnexion.png" alt="logo déconnexion"/></a>
+		</c:if>
 		</nav>
 	</header>
 	<section>
