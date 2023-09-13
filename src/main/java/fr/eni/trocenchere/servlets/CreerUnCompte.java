@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-
-import fr.eni.trocenchere.bll.CategorieManager;
 import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.Utilisateur;
 
@@ -75,8 +73,8 @@ public class CreerUnCompte extends HttpServlet {
 				
 				try {
 					UtilisateurManager.getInstance().insert(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 0, false);
-					RequestDispatcher rd = request.getRequestDispatcher("accueil");
-					rd.forward(request, response);
+					response.sendRedirect("accueil"); 
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

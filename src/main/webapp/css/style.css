@@ -122,3 +122,12 @@ h2 {
 	padding : 10px; 
 }
 
+.inputModifie {
+	border: solid 1px black !important;
+	border-radius: 15px;
+	box-shadow: 4px 4px 0px 0px #000000;	
+}
+
+.input-group, .input-submit {
+    margin: 10px 0px 10px 0px;
+}

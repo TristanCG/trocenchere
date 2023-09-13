@@ -20,28 +20,27 @@
 		<section>
 			<form method="POST" action="connexion">
 
-				<div class="form-group row">
-					<label for="identifiant" class="col-sm-12 col-form-label">Identifiant :</label><br>
-					<div class="col-sm-7">
-						<input type="text" class="form-control" name="identifiant" id="identifiant" placeholder="identifiant">
-					</div>
+				<div class="form-group row input-group">
+				    <label for="identifiant" class="col-sm-12 col-form-label">Identifiant :</label><br>
+				    <div class="col-sm-7">
+				        <input type="text" class="inputModifie form-control" name="identifiant" id="identifiant" placeholder="identifiant">
+				    </div>
+				</div>
+				
+				<div class="form-group row input-group">
+				    <label for="lastName" class="col-sm-12 col-form-label">Mot de passe :</label>
+				    <div class="col-sm-7">
+				        <input type="password" class="inputModifie form-control" name="motDePasse" id="motDePasse" placeholder="Mot De Passe">
+				    </div>
+				</div>
+				
+
+				<div class="form-check input-group">
+				    <input class="form-check-input" type="checkbox" value="" id="souvenir">
+				    <label class="form-check-label" for="souvenir"> Se souvenir de moi </label>
 				</div>
 
-
-				<div class="form-group row">
-					<label for="lastName" class="col-sm-12 col-form-label">Mot de passe :</label>
-					<div class="col-sm-7">
-						<input type="password" class="form-control" name="motDePasse" id="motDePasse" placeholder="Mot De Passe">
-					</div>
-				</div>
-
-
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="" id="souvenir">
-					<label class="form-check-label" for="souvenir"> Se souvenir de moi </label>
-				</div>
-
-				<button type="submit" class="btn btn-dark">Envoyer</button>
+				<button type="submit" class="input-submit btn btn-dark">Envoyer</button>
 
 			</form>
 			<a href="#" class="link-danger">Mot de passe oublié</a> <br> 
