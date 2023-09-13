@@ -44,7 +44,7 @@
 			<h1>Troc Enchère - Accueil</h1>
 
 			<c:if test="${not empty sessionScope.noUtilisateur}">
-				<div class="welcome"> Bienvenue, <c:out value="${sessionScope.pseudo}" /></div>
+				<div class="welcome"> Bienvenue,<c:out value="${sessionScope.pseudo}" /></div>
 			</c:if>
 		</header>
 
