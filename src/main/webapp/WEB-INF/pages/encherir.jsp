@@ -29,7 +29,7 @@
 		                </c:if>
 		            </ul>
 		        <c:if test="${empty sessionScope.noUtilisateur}">
-		            <li><a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a></li>
+		            <a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a>
 		        </c:if>
 		        <c:if test="${not empty sessionScope.noUtilisateur}">
 		            <a href="deconnexion"><img src="./images/deconnexion.png" alt="logo déconnexion"/></a>

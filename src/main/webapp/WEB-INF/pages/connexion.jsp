@@ -19,7 +19,18 @@
 	
 		<section>
 			<form method="POST" action="connexion">
-
+				<div>
+					<div class="input_container">
+						<label for="identifiant">Identifiant : </label>
+						<input type="text" placeholder="Identifiant" name="identifiant" id="identifiant">
+					</div>
+					<div class="input_container">
+						<label for="motDePasse">Mot de passe : </label>
+						<input type="password" name="motDePasse" id="motDePasse" placeholder="Mot De Passe">
+					</div>
+				</div>
+				
+				
 				<div class="form-group row input-group">
 				    <label for="identifiant" class="col-sm-12 col-form-label">Identifiant :</label><br>
 				    <div class="col-sm-7">

@@ -25,10 +25,8 @@
 		                <c:if test="${sessionScope.administrateur == true}">
 		                    <li><a href="categories">Catégories</a></li>
 		                </c:if>
-		                
-		                
-		                    <li><a href="accueil">Enchère</a></li>
-		                 <c:if test="${not empty sessionScope.noUtilisateur}">
+		                <li><a href="accueil">Enchère</a></li>
+		                <c:if test="${not empty sessionScope.noUtilisateur}">
 		                    <li><a href="vendre">Vendre un article</a></li>
 		                    <li><a href="profil?noUtilisateur=<c:out value="${sessionScope.noUtilisateur}" />">Mon profil</a></li>
 		                </c:if>
@@ -53,7 +51,22 @@
 			<div class="formulairerecherche">
 			
 				<form action="accueil" method="POST">
-					<label for="nomRecherche">Filtres :</lablel> 
+					<div>
+						<div class="input_container">
+							<label for="nomRecherche">Recherche : </label>
+							<input class="" type="text" placeholder="Le nom de l'article contient" name="nomRecherche" id="nomRecherche">
+						</div>
+						<div class="input_container">
+							<label for="categorieRecherche">Catégorie :</label>
+							<select class="" name="categorieRecherche" id="categorieRecherche">
+							<c:forEach items="${categories}" var="categorie">
+								<option value="${categorie.noCategorie}">${categorie.libelle}</option>
+							</c:forEach>
+						</select>
+						</div>
+					</div>
+					
+					<label for="nomRecherche">Filtres :</labeel> 
 					<input class="form-control me-2" type="text" placeholder="Le nom de l'article contient" aria-label="Search" name="nomRecherche" id="nomRecherche" >
 					<div class="categorie">
 						<label for="categorieRecherche">Catégorie :</label> 
@@ -67,13 +80,13 @@
 							<div class="achatsventes">
 								<div class="radiobutton"> 
 									<span>
-										<input type="radio" name="typeRecherche" id="achatsRecherche" value="achats" checked>
-										<label for="achatsRecherche">Achats</label>
+										<input type="radio" name="typeRecherche" id="achatsRechercheRadio" value="achats" checked>
+										<label for="achatsRechercheRadio">Achats</label>
 									</span>
 									
 									<span>
-										<input type="radio" name="typeRecherche" id="ventesRecherche" value="ventes">
-										<label for="ventesRecherche">Ventes</label>
+										<input type="radio" name="typeRecherche" id="ventesRechercheRadio" value="ventes">
+										<label for="ventesRechercheRadio">Ventes</label>
 									</span>
 								</div>
 								
@@ -87,7 +100,7 @@
 										<input type="checkbox" name="achats3" id="achats3" value="achats3">
 										<label for="achats3">mes enchères remportées</label>
 									</div>	
-									<div class="ventes" id="ventesRecherche">	
+									<div class="ventes" id="ventesRecherche" style="display:none;">	
 										<input type="checkbox" name="ventes1" id="ventes1" value="ventes1">
 										<label for="ventes1">mes ventes en cours</label>
 										<input type="checkbox" name="ventes2" id="ventes2" value="ventes2">
@@ -133,8 +146,30 @@
 				</div>
 			</div>
 		</section>
-
-
 	</main>
+<script>
+  // Récupérez les éléments radio
+  const achatsRadio = document.getElementById('achatsRechercheRadio');
+  const ventesRadio = document.getElementById('ventesRechercheRadio');
+
+  // Récupérez les div "achatsRecherche" et "ventesRecherche"
+  const achatsDiv = document.getElementById('achatsRecherche');
+  const ventesDiv = document.getElementById('ventesRecherche');
+
+  // Ajoutez des écouteurs d'événements aux éléments radio
+  achatsRadio.addEventListener('change', function() {
+    if (achatsRadio.checked) {
+      achatsDiv.style.display = 'block';
+      ventesDiv.style.display = 'none';
+    }
+  });
+
+  ventesRadio.addEventListener('change', function() {
+    if (ventesRadio.checked) {
+      achatsDiv.style.display = 'none';
+      ventesDiv.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>

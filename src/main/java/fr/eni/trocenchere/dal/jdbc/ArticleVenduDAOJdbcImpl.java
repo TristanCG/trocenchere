@@ -121,7 +121,12 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		            SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.no_utilisateur = ?";
 		        }
 		        if (achats3 != null && !achats3.isEmpty()) {
-		            SELECT_NOM_CATEGORIE += " AND ? >= ARTICLES_VENDUS.date_fin_encheres";
+		        	if(achats1 != null && !achats1.isEmpty()) {
+		        		SELECT_NOM_CATEGORIE += " OR";
+		        	} else {
+		        		SELECT_NOM_CATEGORIE += " AND";
+		        	}
+		            SELECT_NOM_CATEGORIE += "? >= ARTICLES_VENDUS.date_fin_encheres AND ARTICLES_VENDUS.no_utilisateur = ?";
 		        }
 		    }
 		    
@@ -131,10 +136,20 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		            SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.date_debut_encheres <= ? AND ? <= ARTICLES_VENDUS.date_fin_encheres";
 		        }
 		        if (ventes2 != null && !ventes2.isEmpty()) {
-		            SELECT_NOM_CATEGORIE += " AND ARTICLES_VENDUS.date_debut_encheres > ?";
+		        	if(ventes1 != null && !ventes1.isEmpty()){
+			            SELECT_NOM_CATEGORIE += " OR";
+		        	} else {
+			            SELECT_NOM_CATEGORIE += " AND";
+		        	}
+		            SELECT_NOM_CATEGORIE += " ARTICLES_VENDUS.date_debut_encheres > ?";
 		        }
 		        if (ventes3 != null && !ventes3.isEmpty()) {
-		            SELECT_NOM_CATEGORIE += " AND ? > ARTICLES_VENDUS.date_fin_encheres";
+		        	if(ventes1 != null && !ventes1.isEmpty() || ventes2 != null && !ventes2.isEmpty()){
+			            SELECT_NOM_CATEGORIE += " OR";
+		        	} else {
+			            SELECT_NOM_CATEGORIE += " AND";
+		        	}
+		            SELECT_NOM_CATEGORIE += " ? > ARTICLES_VENDUS.date_fin_encheres";
 		        }
 		    }
 		SELECT_NOM_CATEGORIE += ";";
@@ -170,6 +185,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 					// Mes enchères remportés
 					if(achats3 != null && !(achats3.isEmpty())) {
 						preparedStatement.setDate(noParametre, java.sql.Date.valueOf(date));
+						noParametre++;
+						preparedStatement.setInt(noParametre, noUtilisateurSession);
 						noParametre++;
 					}
 				}
