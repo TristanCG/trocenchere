@@ -5,17 +5,11 @@
 <html>
 
 <head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis./css2?family=Marriweather&family=Raleway&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis./css2?family=Marriweather&family=Raleway&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Troc enchère</title><script>
     // Sélectionnez les éléments radio
@@ -88,6 +82,7 @@
 
 		<section class="accueil">
 			<div class="formulairerecherche">
+			
 				<form action="accueil" method="POST">
 					<label for="nomRecherche">Filtres :</lablel> 
 					<input class="form-control me-2" type="text" placeholder="Le nom de l'article contient" aria-label="Search" name="nomRecherche" id="nomRecherche" >
