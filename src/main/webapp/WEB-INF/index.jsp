@@ -32,14 +32,15 @@
 		                    <li><a href="categories">Catégories</a></li>
 		                </c:if>
 		                
-		                <c:if test="${not empty sessionScope.noUtilisateur}">
+		                
 		                    <li><a href="accueil">Enchère</a></li>
+		                 <c:if test="${not empty sessionScope.noUtilisateur}">
 		                    <li><a href="vendre">Vendre un article</a></li>
 		                    <li><a href="profil?noUtilisateur=<c:out value="${sessionScope.noUtilisateur}" />">Mon profil</a></li>
 		                </c:if>
 		            </ul>
 		        <c:if test="${empty sessionScope.noUtilisateur}">
-		            <li><a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a></li>
+		            <a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a>
 		        </c:if>
 		        <c:if test="${not empty sessionScope.noUtilisateur}">
 		            <a href="deconnexion"><img src="./images/deconnexion.png" alt="logo déconnexion"/></a>
@@ -49,9 +50,7 @@
 			<h1>Troc Enchère - Accueil</h1>
 
 			<c:if test="${not empty sessionScope.noUtilisateur}">
-				<div class="welcome"> Bienvenue,
-					<c:out value="${sessionScope.pseudo}" /> vous êtes = <c:out value="${sessionScope.administrateur}" />
-				</div>
+				<div class="welcome"> Bienvenue,<c:out value="${sessionScope.pseudo}" /></div>
 			</c:if>
 		</header>
 
