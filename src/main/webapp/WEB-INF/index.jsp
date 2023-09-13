@@ -129,6 +129,7 @@
 											<a href="profil?noUtilisateur=${article.utilisateur.noUtilisateur}" 
 											class="btn btn-dark"> ${article.utilisateur.pseudo}</a>
 										</div>
+
 									</div>
 								</div>
 							</a>
