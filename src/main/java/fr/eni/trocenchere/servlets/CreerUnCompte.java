@@ -69,7 +69,7 @@ public class CreerUnCompte extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String motDePasse = request.getParameter("motDePasse");
 		String confirmationmotDePasse = request.getParameter("confirmationMotDePasse");
-		if (action.equals("insert")) {
+		if ("insert".equals(action)) {
 			
 			if(motDePasse.equals(confirmationmotDePasse)) {
 				
