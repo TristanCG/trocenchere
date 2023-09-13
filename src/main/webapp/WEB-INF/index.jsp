@@ -24,8 +24,6 @@
 	<div class="videTopBackgroundEmpty"></div>
 	<main>
 		<header>
-			<a href="accueil"><img src="images/auction.png"
-				alt="logo pris en opensource pour Troc Enchère" width=5% /></a>
 
 	        <nav>
 		        <a href="accueil"><img src="images/auction.png" alt="logo pris en opensource pour Troc Enchère"/></a>
