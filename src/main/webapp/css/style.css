@@ -17,7 +17,7 @@ div.videTopBackgroundEmpty{
 	
 }
 main{
-	margin: 50px auto 0px auto;
+	margin: 50px auto 50px auto;
 	width : 1100px;
 	background-color: #EEE;
 	position : absolute;
@@ -57,4 +57,35 @@ nav ul{
 nav li{
 	margin: 0px auto;
 	padding: 15px;
+}
+
+.card {
+	margin-top: 20px;
+	border: solid 2px black;
+	border-radius: 15px;
+	box-shadow: 5px 5px 0px 0px #000000;	
+	overflow: hidden;
+	transition: 0.2s;
+}
+
+.card > img {
+	border-bottom: solid 2px black;
+}
+
+.card a{
+	text-decoration: none;
+	color:rgb(0, 0, 0)
+}
+
+a.btn {
+	color : white; 
+}
+
+.card:hover {
+	transform: scale(1.02);
+}
+
+h1 {
+	margin : 20px;
+	text-align: center;
 }
