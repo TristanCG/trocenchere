@@ -44,6 +44,10 @@ public class Accueil extends HttpServlet {
 		String ventes2 = request.getParameter("ventes2");
 		String ventes3 = request.getParameter("ventes3");
 		
+		if (typeRecherche == null) {
+			typeRecherche = "achats";
+		}
+		
 		HttpSession session = request.getSession(false);
 		Integer noUtilisateurSession = null; 
 
