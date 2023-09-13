@@ -59,35 +59,53 @@
 		<section class="accueil">
 			<div class="formulairerecherche">
 				<form action="accueil" method="POST">
-					<label for="nomRecherche">Filtres :</lablel> <input type="text" name="nomRecherche" id="nomRecherche" placeholder="Le nom de l'article contient"> <label for="categorieRecherche">Catégorie :</label> 
-					<select name="categorieRecherche" id="categorieRecherche">
+					<label for="nomRecherche">Filtres :</lablel> 
+					<input class="form-control me-2" type="text" placeholder="Le nom de l'article contient" aria-label="Search" name="nomRecherche" id="nomRecherche" >
+					<div class="categorie">
+						<label for="categorieRecherche">Catégorie :</label> 
+						<select class="form-select" aria-label="Default select example" name="categorieRecherche" id="categorieRecherche">
 							<c:forEach items="${categories}" var="categorie">
 								<option value="${categorie.noCategorie}">${categorie.libelle}</option>
 							</c:forEach>
-					</select> <c:if test="${not empty sessionScope.noUtilisateur}">
-							<div class="achat">
-								<input type="radio" name="typeRecherche" id="achatsRecherche" value="achats" checked>
-								<label for="achatsRecherche">Achats</label>
-								<input type="checkbox" name="achats1" id="achats1" value="achats1">
-								<label for="achats1">enchères ouvertes</label>
-								<input type="checkbox" name="achats2" id="achats2" value="achats2">
-								<label for="achats2">mes enchères</label>
-								<input type="checkbox" name="achats3" id="achats3" value="achats3">
-								<label for="achats3">mes enchères remportées</label>
-							</div>
-							<div class="ventes">
-								<input type="radio" name="typeRecherche" id="ventesRecherche" value="ventes">
-								<label for="ventesRecherche">Ventes</label>
-								<input type="checkbox" name="ventes1" id="ventes1" value="ventes1">
-								<label for="ventes1">mes ventes en cours</label>
-								<input type="checkbox" name="ventes2" id="ventes2" value="ventes2">
-								<label for="ventes2">ventes non débutées</label>
-								<input type="checkbox" name="ventes3" id="ventes3" value="ventes3">
-								<label for="ventes3">ventes terminées</label>
+						</select>
+					</div>
+						<c:if test="${not empty sessionScope.noUtilisateur}">
+							<div class="achatsventes">
+								<div class="radiobutton"> 
+									<span>
+										<input type="radio" name="typeRecherche" id="achatsRecherche" value="achats" checked>
+										<label for="achatsRecherche">Achats</label>
+									</span>
+									
+									<span>
+										<input type="radio" name="typeRecherche" id="ventesRecherche" value="ventes">
+										<label for="ventesRecherche">Ventes</label>
+									</span>
+								</div>
+								
+								
+								<div class="checkboxbutton"> 
+									<div class="achats" id="achatsRecherche">
+										<input type="checkbox" name="achats1" id="achats1" value="achats1">
+										<label for="achats1">enchères ouvertes</label>
+										<input type="checkbox" name="achats2" id="achats2" value="achats2">
+										<label for="achats2">mes enchères</label>
+										<input type="checkbox" name="achats3" id="achats3" value="achats3">
+										<label for="achats3">mes enchères remportées</label>
+									</div>	
+									<div class="ventes" id="ventesRecherche">	
+										<input type="checkbox" name="ventes1" id="ventes1" value="ventes1">
+										<label for="ventes1">mes ventes en cours</label>
+										<input type="checkbox" name="ventes2" id="ventes2" value="ventes2">
+										<label for="ventes2">ventes non débutées</label>
+										<input type="checkbox" name="ventes3" id="ventes3" value="ventes3">
+										<label for="ventes3">ventes terminées</label>
+									</div>
+								</div>
 							</div>
 						</c:if> 
-						<div>
-							<input type="submit" value="Rechercher">
+						<div class="submitbutton">
+							<input type="submit" class="btn btn-dark" value="Rechercher">
 						</div>
 				</form>
 			</div>

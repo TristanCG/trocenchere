@@ -111,3 +111,14 @@ h2 {
 .formulairerecherche {
 	text-align: center;
 }
+
+.radiobutton {
+	display: flex;
+	justify-content: space-around; 
+	padding: 10px;
+}
+
+.submitbutton {
+	padding : 10px; 
+}
+
