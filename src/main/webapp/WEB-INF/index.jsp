@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
 	<div class="videTopBackgroundEmpty"></div>
 	<main>
 		<header>
@@ -53,7 +54,7 @@
 			<div class="formulairerecherche">
 			
 				<form action="accueil" method="POST">
-					<label for="nomRecherche">Filtres :</lablel> 
+					<label for="nomRecherche">Filtres :</labeel> 
 					<input class="form-control me-2" type="text" placeholder="Le nom de l'article contient" aria-label="Search" name="nomRecherche" id="nomRecherche" >
 					<div class="categorie">
 						<label for="categorieRecherche">Catégorie :</label> 
@@ -67,13 +68,13 @@
 							<div class="achatsventes">
 								<div class="radiobutton"> 
 									<span>
-										<input type="radio" name="typeRecherche" id="achatsRecherche" value="achats" checked>
-										<label for="achatsRecherche">Achats</label>
+										<input type="radio" name="typeRecherche" id="achatsRechercheRadio" value="achats" checked>
+										<label for="achatsRechercheRadio">Achats</label>
 									</span>
 									
 									<span>
-										<input type="radio" name="typeRecherche" id="ventesRecherche" value="ventes">
-										<label for="ventesRecherche">Ventes</label>
+										<input type="radio" name="typeRecherche" id="ventesRechercheRadio" value="ventes">
+										<label for="ventesRechercheRadio">Ventes</label>
 									</span>
 								</div>
 								
@@ -87,7 +88,7 @@
 										<input type="checkbox" name="achats3" id="achats3" value="achats3">
 										<label for="achats3">mes enchères remportées</label>
 									</div>	
-									<div class="ventes" id="ventesRecherche">	
+									<div class="ventes" id="ventesRecherche" style="display: none;">	
 										<input type="checkbox" name="ventes1" id="ventes1" value="ventes1">
 										<label for="ventes1">mes ventes en cours</label>
 										<input type="checkbox" name="ventes2" id="ventes2" value="ventes2">
@@ -124,7 +125,6 @@
 											<a href="profil?noUtilisateur=${article.utilisateur.noUtilisateur}" 
 											class="btn btn-dark"> ${article.utilisateur.pseudo}</a>
 										</div>
-
 									</div>
 								</div>
 							</a>
@@ -136,5 +136,29 @@
 
 
 	</main>
+<script>
+  // Récupérez les éléments radio
+  const achatsRadio = document.getElementById('achatsRechercheRadio');
+  const ventesRadio = document.getElementById('ventesRechercheRadio');
+
+  // Récupérez les div "achatsRecherche" et "ventesRecherche"
+  const achatsDiv = document.getElementById('achatsRecherche');
+  const ventesDiv = document.getElementById('ventesRecherche');
+
+  // Ajoutez des écouteurs d'événements aux éléments radio
+  achatsRadio.addEventListener('change', function() {
+    if (achatsRadio.checked) {
+      achatsDiv.style.display = 'block';
+      ventesDiv.style.display = 'none';
+    }
+  });
+
+  ventesRadio.addEventListener('change', function() {
+    if (ventesRadio.checked) {
+      achatsDiv.style.display = 'none';
+      ventesDiv.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>
