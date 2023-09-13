@@ -303,5 +303,17 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		}
 		return retrait;
 	}
+	
+	private final static String DELETE_CATEGORIE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?;";
+	@Override
+	public void delete(int noArticleVendu) {
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pStmt = cnx.prepareStatement(DELETE_CATEGORIE);
+			pStmt.setInt(1, noArticleVendu);
+			pStmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

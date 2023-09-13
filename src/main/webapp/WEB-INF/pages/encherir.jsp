@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Troc Enchere - Encherir</title>
 </head>
 <body>
@@ -68,8 +68,9 @@
 		</c:if>
 		
 	</table>
-	
-	<a href="encherir?supprimer=${articleVendu.noArticle}">Supprimer l'enchère</a>
+	<c:if test="${noUtilisateur == utilisateur.noUtilisateur}">
+		<a href="encherir?supprimer=${articleVendu.noArticle}">Supprimer l'enchère</a>
+	</c:if>
 	<a href="accueil">Annuler</a>
 	
 </body>

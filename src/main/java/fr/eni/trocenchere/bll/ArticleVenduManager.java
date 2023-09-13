@@ -55,4 +55,9 @@ public class ArticleVenduManager {
 		return DAOFactory.getArticleVenduDAO().selectNomCategorie(nomRecherche, categorieRecherche, typeRecherche, achats1, achats2, achats3, ventes1, ventes2, ventes3, noUtilisateurSession); 
 	}
 
+	public void delete(int noArticleVendu) {
+		DAOFactory.getArticleVenduDAO().delete(noArticleVendu);
+		
+	}
+
 }

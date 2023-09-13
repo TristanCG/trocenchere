@@ -57,15 +57,19 @@
 					<option value="${categorie.noCategorie}">${categorie.libelle}</option>
 				</c:forEach>
 			</select>
-			<input type="radio" name="typeRecherche" id="achatsRecherche" value="achats" checked><label for="achatsRecherche">Achats</label>
-			<input type="checkbox" name="achats1" id="achats1" value="achats1"><label for="achats1">enchères ouvertes</label>
-			<input type="checkbox" name="achats2" id="achats2" value="achats2"><label for="achats2">mes enchères</label>
-			<input type="checkbox" name="achats3" id="achats3" value="achats3"><label for="achats3">mes enchères remportées</label>
 			
-			<input type="radio" name="typeRecherche" id="ventesRecherche" value="ventes"><label for="ventesRecherche">Ventes</label>
-			<input type="checkbox" name="ventes1" id="ventes1" value="ventes1"><label for="ventes1">mes ventes en cours</label>
-			<input type="checkbox" name="ventes2" id="ventes2" value="ventes2"><label for="ventes2">ventes non débutées</label>
-			<input type="checkbox" name="ventes3" id="ventes3" value="ventes3"><label for="ventes3">ventes terminées</label>
+			<c:if test="${not empty sessionScope.noUtilisateur}">
+				<input type="radio" name="typeRecherche" id="achatsRecherche" value="achats" checked><label for="achatsRecherche">Achats</label>
+				<input type="checkbox" name="achats1" id="achats1" value="achats1"><label for="achats1">enchères ouvertes</label>
+				<input type="checkbox" name="achats2" id="achats2" value="achats2"><label for="achats2">mes enchères</label>
+				<input type="checkbox" name="achats3" id="achats3" value="achats3"><label for="achats3">mes enchères remportées</label>
+				
+				<input type="radio" name="typeRecherche" id="ventesRecherche" value="ventes"><label for="ventesRecherche">Ventes</label>
+				<input type="checkbox" name="ventes1" id="ventes1" value="ventes1"><label for="ventes1">mes ventes en cours</label>
+				<input type="checkbox" name="ventes2" id="ventes2" value="ventes2"><label for="ventes2">ventes non débutées</label>
+				<input type="checkbox" name="ventes3" id="ventes3" value="ventes3"><label for="ventes3">ventes terminées</label>
+			</c:if>
+			
 			
 			<input type="submit" value="Rechercher">
 		</form>
