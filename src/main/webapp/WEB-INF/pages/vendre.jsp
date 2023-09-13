@@ -9,9 +9,8 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis./css2?family=Marriweather&family=Raleway&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis./css2?family=Marriweather&family=Raleway&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <title>Vendre un article</title>
 </head>
 
@@ -101,8 +100,10 @@
 					</tr>
 				</table>
 
-				<input type="submit"> <a href="accueil">Annuler</a>
-
+				<div class="boutons-vendre">
+					<input type="submit" class="btn btn-dark"> 
+					<a href="accueil" class="btn btn-dark">Annuler</a>
+				</div>	
 			</form>
 		</section>
 

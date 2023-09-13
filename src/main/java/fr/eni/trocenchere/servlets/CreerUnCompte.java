@@ -39,6 +39,7 @@ public class CreerUnCompte extends HttpServlet {
 				
 	    		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/creeruncompte.jsp");
 	    		rd.forward(request, response);
+
 			}
 			
 		} else {

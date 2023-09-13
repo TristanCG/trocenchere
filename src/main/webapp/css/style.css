@@ -8,6 +8,7 @@
 body{
 	background-color: #000 !important;
 }
+
 div.videTopBackgroundEmpty{
 	background-color: #fff;
 	width : 100%;
@@ -96,6 +97,7 @@ a.btn {
 
 h1 {
 	margin : 20px;
+	padding: 10px;
 	text-align: center;
 }
 
@@ -130,4 +132,8 @@ h2 {
 
 .input-group, .input-submit {
     margin: 10px 0px 10px 0px;
+}
+
+.boutons-vendre {
+	padding : 10px; 
 }

@@ -7,6 +7,8 @@
 	<meta charset="UTF-8">
 	<title>Troc Enchere - Profil ${utilisateur.pseudo}</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	
 	</head>
 <body>
 <div class="videTopBackgroundEmpty">
@@ -73,9 +75,9 @@
 	
 	
 	<c:if test="${sessionScope.noUtilisateur == utilisateur.noUtilisateur}">
-		<a href="creeruncompte?update&noUtilisateur=<c:out value="${utilisateur.noUtilisateur}" />">Modifier</a>
+		<a href="creeruncompte?update&noUtilisateur=<c:out value="${utilisateur.noUtilisateur}"/>" class="btn btn-dark">Modifier</a>
 	</c:if>
-	<a href="accueil">Accueil</a>
+	<a href="accueil" class="btn btn-dark">Accueil</a>
 	</section>
 </main>
 
