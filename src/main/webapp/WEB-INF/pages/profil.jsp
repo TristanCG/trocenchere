@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<title>Troc Enchere - Profil ${utilisateur.pseudo}</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<!-- 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
 	
 	</head>
 <body>
@@ -29,55 +29,69 @@
 				</c:if>
 			</ul>
 		<c:if test="${empty sessionScope.noUtilisateur}">
-			<li><a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a></li>
+			<a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a>
 		</c:if>
 		<c:if test="${not empty sessionScope.noUtilisateur}">
 			<a href="deconnexion"><img src="./images/deconnexion.png" alt="logo déconnexion"/></a>
 		</c:if>
 		</nav>
+		
+		<h1>Profil de ${utilisateur.pseudo}
+		<c:if test="${sessionScope.noUtilisateur == utilisateur.noUtilisateur}">
+			<a href="creeruncompte?update&noUtilisateur=<c:out value="${utilisateur.noUtilisateur}"/>" class="bouton modifier">Modifier</a>
+		</c:if></h1>
 	</header>
 	<section>
-	<h1>Profil</h1>
-	<table>
-		<tr>
-			<th>Pseudo</th>
-			<td><c:out value="${utilisateur.pseudo}" /></td>
-		</tr>
-		<tr>
-			<th>Nom</th>
-			<td><c:out value="${utilisateur.nom}" /></td>
-		</tr>
-		<tr>
-			<th>Prénom</th>
-			<td><c:out value="${utilisateur.prenom}" /></td>
-		</tr>
-		<tr>
-			<th>Email</th>
-			<td><c:out value="${utilisateur.email}" /></td>
-		</tr>
-		<tr>
-			<th>Téléphone</th>
-			<td><c:out value="${utilisateur.telephone}" /></td>
-		</tr>
-		<tr>
-			<th>Rue</th>
-			<td><c:out value="${utilisateur.rue}" /></td>
-		</tr>
-		<tr>
-			<th>Code postal</th>
-			<td><c:out value="${utilisateur.codePostal}" /></td>
-		</tr>
-		<tr>
-			<th>Ville</th>
-			<td><c:out value="${utilisateur.ville}" /></td>
-		</tr>
-	</table>
 	
 	
-	<c:if test="${sessionScope.noUtilisateur == utilisateur.noUtilisateur}">
-		<a href="creeruncompte?update&noUtilisateur=<c:out value="${utilisateur.noUtilisateur}"/>" class="btn btn-dark">Modifier</a>
-	</c:if>
-	<a href="accueil" class="btn btn-dark">Accueil</a>
+	<div class="profil_container">
+		<div>
+			<h1>Identité</h1>
+		</div>
+		<div>
+			<div>Nom : </div>
+			<div>${utilisateur.nom}</div>
+		</div>
+		<div>
+			<div>Prénom : </div>
+			<div>${utilisateur.prenom}</div>
+		</div>
+	</div>
+	<div class="profil_container">
+		<div>
+			<h1>Contact</h1>
+		</div>
+		<div>
+			<div>Email : </div>
+			<div>${utilisateur.email}</div>
+		</div>
+		<div>
+			<div>Téléphone : </div>
+			<div>${utilisateur.telephone}</div>
+		</div>
+	</div>
+	
+	<div class="profil_container">
+		<div>
+			<h1>Adresse</h1>
+		</div>
+		<div>
+			<div>Rue : </div>
+			<div>${utilisateur.rue}</div>
+		</div>
+		<div>
+			<div>Code Postal : </div>
+			<div>${utilisateur.codePostal}</div>
+		</div>
+		<div>
+			<div>Ville : </div>
+			<div>${utilisateur.ville}</div>
+		</div>
+	</div>
+	
+	
+	
+	
 	</section>
 </main>
 

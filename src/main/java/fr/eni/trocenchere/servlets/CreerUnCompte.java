@@ -121,8 +121,7 @@ public class CreerUnCompte extends HttpServlet {
 							
 							System.out.println("ok servlet creeUnCompte update");
 							
-							RequestDispatcher rd = request.getRequestDispatcher("profil");
-					        rd.forward(request, response);
+							response.sendRedirect("profil?noUtilisateur="+utilisateur);
 						} catch (Exception e) {
 							e.printStackTrace();
 							System.out.println("Try catch erreur servlet creeUnCompte update");

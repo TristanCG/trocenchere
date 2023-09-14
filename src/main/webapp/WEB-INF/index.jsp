@@ -26,10 +26,8 @@
 		                <c:if test="${sessionScope.administrateur == true}">
 		                    <li><a href="categories">Catégories</a></li>
 		                </c:if>
-		                
-		                
-		                    <li><a href="accueil">Enchère</a></li>
-		                 <c:if test="${not empty sessionScope.noUtilisateur}">
+		                <li><a href="accueil">Enchère</a></li>
+		                <c:if test="${not empty sessionScope.noUtilisateur}">
 		                    <li><a href="vendre">Vendre un article</a></li>
 		                    <li><a href="profil?noUtilisateur=<c:out value="${sessionScope.noUtilisateur}" />">Mon profil</a></li>
 		                </c:if>
@@ -54,6 +52,20 @@
 			<div class="formulairerecherche">
 			
 				<form action="accueil" method="POST">
+					<div>
+						<div class="input_container">
+							<label for="nomRecherche">Recherche : </label>
+							<input class="" type="text" placeholder="Le nom de l'article contient" name="nomRecherche" id="nomRecherche">
+						</div>
+						<div class="input_container">
+							<label for="categorieRecherche">Catégorie :</label>
+							<select class="" name="categorieRecherche" id="categorieRecherche">
+							<c:forEach items="${categories}" var="categorie">
+								<option value="${categorie.noCategorie}">${categorie.libelle}</option>
+							</c:forEach>
+						</select>
+						</div>
+					</div>
 					<label for="nomRecherche">Filtres :</labeel> 
 					<input class="form-control me-2" type="text" placeholder="Le nom de l'article contient" aria-label="Search" name="nomRecherche" id="nomRecherche" >
 					<div class="categorie">
@@ -89,6 +101,7 @@
 										<label for="achats3">mes enchères remportées</label>
 									</div>	
 									<div class="ventes" id="ventesRecherche" style="display: none;">	
+
 										<input type="checkbox" name="ventes1" id="ventes1" value="ventes1">
 										<label for="ventes1">mes ventes en cours</label>
 										<input type="checkbox" name="ventes2" id="ventes2" value="ventes2">
@@ -117,13 +130,11 @@
 										alt="Photo Open-source d'une enchère">
 									<div class="card-body">
 										<h5 class="card-title">${article.nomArticle}</h5>
-										<p class="card-text">Prix de vente : ${article.prixVente}
-											crédits</p>
+										<p class="card-text">Prix de vente : ${article.prixVente} crédits</p>
 										<p class="card-text">Date de fin de l'enchère :
 											${article.dateFinEncheres}</p>
 										<div class="d-flex justify-content-between">
-											<a href="profil?noUtilisateur=${article.utilisateur.noUtilisateur}" 
-											class="btn btn-dark"> ${article.utilisateur.pseudo}</a>
+											<a href="profil?noUtilisateur=${article.utilisateur.noUtilisateur}" class="btn btn-dark"> ${article.utilisateur.pseudo}</a>
 										</div>
 									</div>
 								</div>
@@ -133,8 +144,6 @@
 				</div>
 			</div>
 		</section>
-
-
 	</main>
 <script>
   // Récupérez les éléments radio
