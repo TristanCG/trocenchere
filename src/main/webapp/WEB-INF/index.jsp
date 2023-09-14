@@ -66,55 +66,45 @@
 						</select>
 						</div>
 					</div>
-					<label for="nomRecherche">Filtres :</labeel> 
-					<input class="form-control me-2" type="text" placeholder="Le nom de l'article contient" aria-label="Search" name="nomRecherche" id="nomRecherche" >
-					<div class="categorie">
-						<label for="categorieRecherche">Catégorie :</label> 
-						<select class="form-select" aria-label="Default select example" name="categorieRecherche" id="categorieRecherche">
-							<c:forEach items="${categories}" var="categorie">
-								<option value="${categorie.noCategorie}">${categorie.libelle}</option>
-							</c:forEach>
-						</select>
-					</div>
-						<c:if test="${not empty sessionScope.noUtilisateur}">
-							<div class="achatsventes">
-								<div class="radiobutton"> 
-									<span>
-										<input type="radio" name="typeRecherche" id="achatsRechercheRadio" value="achats" checked>
-										<label for="achatsRechercheRadio">Achats</label>
-									</span>
-									
-									<span>
-										<input type="radio" name="typeRecherche" id="ventesRechercheRadio" value="ventes">
-										<label for="ventesRechercheRadio">Ventes</label>
-									</span>
-								</div>
+					<c:if test="${not empty sessionScope.noUtilisateur}">
+						<div class="achatsventes">
+							<div class="radiobutton" style="width: 500px; margin: auto;"> 
+								<span>
+									<input type="radio" name="typeRecherche" id="achatsRechercheRadio" value="achats" checked>
+									<label for="achatsRechercheRadio">Achats</label>
+								</span>
 								
-								
-								<div class="checkboxbutton"> 
-									<div class="achats" id="achatsRecherche">
-										<input type="checkbox" name="achats1" id="achats1" value="achats1">
-										<label for="achats1">enchères ouvertes</label>
-										<input type="checkbox" name="achats2" id="achats2" value="achats2">
-										<label for="achats2">mes enchères</label>
-										<input type="checkbox" name="achats3" id="achats3" value="achats3">
-										<label for="achats3">mes enchères remportées</label>
-									</div>	
-									<div class="ventes" id="ventesRecherche" style="display: none;">	
+								<span>
+									<input type="radio" name="typeRecherche" id="ventesRechercheRadio" value="ventes">
+									<label for="ventesRechercheRadio">Ventes</label>
+								</span>
+							</div>
+							
+							
+							<div class="checkboxbutton"> 
+								<div class="achats" id="achatsRecherche">
+									<input type="checkbox" name="achats1" id="achats1" value="achats1">
+									<label for="achats1">enchères ouvertes</label>
+									<input type="checkbox" name="achats2" id="achats2" value="achats2">
+									<label for="achats2">mes enchères</label>
+									<input type="checkbox" name="achats3" id="achats3" value="achats3">
+									<label for="achats3">mes enchères remportées</label>
+								</div>	
+								<div class="ventes" id="ventesRecherche" style="display: none;">	
 
-										<input type="checkbox" name="ventes1" id="ventes1" value="ventes1">
-										<label for="ventes1">mes ventes en cours</label>
-										<input type="checkbox" name="ventes2" id="ventes2" value="ventes2">
-										<label for="ventes2">ventes non débutées</label>
-										<input type="checkbox" name="ventes3" id="ventes3" value="ventes3">
-										<label for="ventes3">ventes terminées</label>
-									</div>
+									<input type="checkbox" name="ventes1" id="ventes1" value="ventes1">
+									<label for="ventes1">mes ventes en cours</label>
+									<input type="checkbox" name="ventes2" id="ventes2" value="ventes2">
+									<label for="ventes2">ventes non débutées</label>
+									<input type="checkbox" name="ventes3" id="ventes3" value="ventes3">
+									<label for="ventes3">ventes terminées</label>
 								</div>
 							</div>
-						</c:if> 
-						<div class="submitbutton">
-							<input type="submit" class="btn btn-dark" value="Rechercher">
 						</div>
+					</c:if> 
+					<div class="submitbutton">
+						<input type="submit" class="btn btn-dark" value="Rechercher">
+					</div>
 				</form>
 			</div>
 

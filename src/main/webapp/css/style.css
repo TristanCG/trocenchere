@@ -156,9 +156,11 @@ h2 {
 .input_container label{
         flex: 0 1 auto;
         width: 200px;
+        height: 100%;
 	padding: 5px 5px 5px 10px;
 	border-right: solid black 2px;
 }
+textarea,
 .input_container input,
 .input_container select
 {
@@ -167,6 +169,7 @@ h2 {
 	height: 100%;
 	border: none;
 }
+textarea:focus,
 .input_container input:focus,
 .input_container select:focus{
 	outline: none;
@@ -212,6 +215,7 @@ h2 {
 		padding: 10px;
 }
 
+
 .bouton{
 	font-size: 18px;
 	margin: 10px 10px 10px 20px;
@@ -230,8 +234,29 @@ h2 {
 	background-color: steelblue;
 }
 
+section{
+	position: relative;
+}
+.organique{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+}
 
-
+img.miniature{
+	position: absolute;
+	top: -20px;
+	right: 10px;
+  	object-fit: cover;
+	border-radius: 100%;
+	width: 300px;
+	height: 300px;
+	border: solid 2px black;
+	box-shadow: 5px 5px 0px 0px #000000;
+	
+}
 
 
 

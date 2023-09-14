@@ -14,6 +14,13 @@
 
 	<main>
 		<header>
+			<nav>
+			<a href="accueil"><img src="images/auction.png" alt="logo pris en opensource pour Troc Enchère"/></a>
+				<ul>
+					<li><a href="accueil">Enchère</a></li>
+				</ul>
+				<a href="connexion"><img src="./images/connexion.png" alt="logo connexion"/></a>
+			</nav>
 			<h1>Troc Enchère - Connexion</h1>
 		</header>
 	
@@ -30,22 +37,6 @@
 					</div>
 				</div>
 				
-				
-				<div class="form-group row input-group">
-				    <label for="identifiant" class="col-sm-12 col-form-label">Identifiant :</label><br>
-				    <div class="col-sm-7">
-				        <input type="text" class="inputModifie form-control" name="identifiant" id="identifiant" placeholder="identifiant">
-				    </div>
-				</div>
-				
-				<div class="form-group row input-group">
-				    <label for="lastName" class="col-sm-12 col-form-label">Mot de passe :</label>
-				    <div class="col-sm-7">
-				        <input type="password" class="inputModifie form-control" name="motDePasse" id="motDePasse" placeholder="Mot De Passe">
-				    </div>
-				</div>
-				
-
 				<div class="form-check input-group">
 				    <input class="form-check-input" type="checkbox" value="" id="souvenir">
 				    <label class="form-check-label" for="souvenir"> Se souvenir de moi </label>

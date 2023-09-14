@@ -42,8 +42,7 @@
 		</c:if></h1>
 	</header>
 	<section>
-	
-	
+	<img src="./images/organique1.png" class="organique">
 	<div class="profil_container">
 		<div>
 			<h1>Identité</h1>
