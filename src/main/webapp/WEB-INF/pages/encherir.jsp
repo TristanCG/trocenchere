@@ -61,7 +61,7 @@
 				</div>
 				<div>
 					<div>Vendeur : </div>
-					<div>${utilisateur.pseudo}</div>
+					<div><a href="profil?noUtilisateur=${utilisateur.noUtilisateur}">${utilisateur.pseudo}</a></div>
 				</div>
 			</div>
 			<div class="profil_container">

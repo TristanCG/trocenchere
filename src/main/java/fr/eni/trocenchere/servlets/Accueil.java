@@ -50,7 +50,7 @@ public class Accueil extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 		Integer noUtilisateurSession = null; 
-
+		
 		if (session != null) {
 		    noUtilisateurSession = (Integer) session.getAttribute("noUtilisateur");
 

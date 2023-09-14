@@ -113,17 +113,17 @@
 								<input type="submit" value="Modifier" name="creerUnCompte">
 							</c:when>
 							<c:otherwise>
-								<input type="submit" value="Créer" name="creerUnCompte">
+								<input type="submit" value="Créer" name="creerUnCompte" class="bouton">
 							</c:otherwise>
 						</c:choose>
 					</div>
 					<c:if test="${action eq 'update'}">
 						<div>
-							<a href="creeruncompte?delete&noUtilisateur=${utilisateur.noUtilisateur}">Supprimer</a>
+							<a href="creeruncompte?delete&noUtilisateur=${utilisateur.noUtilisateur}" class="bouton boutton_red">Supprimer</a>
 						</div>
 					</c:if>
 					<div>
-						<a href="accueil">Annuler</a>
+						<a href="accueil" class="bouton">Annuler</a>
 					</div>
 				</div>
 			</form>

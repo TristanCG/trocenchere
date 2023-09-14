@@ -160,6 +160,9 @@ h2 {
 	padding: 5px 5px 5px 10px;
 	border-right: solid black 2px;
 }
+textarea{
+	height: 32px;
+}
 textarea,
 .input_container input,
 .input_container select
@@ -215,8 +218,8 @@ textarea:focus,
 		padding: 10px;
 }
 
-
-.bouton{
+input[type=submit].bouton,
+a.bouton{
 	font-size: 18px;
 	margin: 10px 10px 10px 20px;
 	padding: 15px 20px;
@@ -230,8 +233,14 @@ textarea:focus,
 	position: relative;
 	top: -4px;
 }
-.bouton:hover{
+a.boutton_red{
+	background-color: #FF4A60;
+}
+a.bouton:hover{
 	background-color: steelblue;
+}
+a.boutton_red:hover{
+	background-color: #FF8797;
 }
 
 section{

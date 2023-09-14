@@ -21,9 +21,8 @@
 				<c:if test="${sessionScope.administrateur == true}">
 					<li><a href="categories">Catégories</a></li>
 				</c:if>
-				
-				<c:if test="${not empty sessionScope.noUtilisateur}">
 					<li><a href="accueil">Enchère</a></li>
+				<c:if test="${not empty sessionScope.noUtilisateur}">
 					<li><a href="vendre">Vendre un article</a></li>
 					<li><a href="profil?noUtilisateur=<c:out value="${sessionScope.noUtilisateur}" />">Mon profil</a></li>
 				</c:if>
