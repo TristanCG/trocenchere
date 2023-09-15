@@ -114,22 +114,26 @@
 	
 	
 			<c:if test="${condition eq 'ok'}">
-				<tr>
-					<form action="encherir" method="POST">
-						<th><label for="proposition">Ma proposition</label></th>
-						<td><input type="number" name="proposition" id="proposition"
+				<form action="encherir" method="POST">
+					<div class="input_container">
+						<label for="proposition">Ma proposition</label>
+						<input type="number" name="proposition" id="proposition"
 							value=""> <input type="hidden" name="noArticle"
-							value="${articleVendu.noArticle}"></td>
-						<td><input type="submit" value="Encherir"></td>
-					</form>
-				</tr>
+							value="${articleVendu.noArticle}">
+					</div>
+					<div class="bouton_container">
+						<input type="submit" value="Encherir" class="bouton">
+					</div>
+				</form>
 			</c:if>
+			<div class="bouton_container">
 			<c:if test="${noUtilisateur == utilisateur.noUtilisateur}">
-				<a href="encherir?supprimer=${articleVendu.noArticle}">Supprimer l'enchère</a>
+				<a href="encherir?supprimer=${articleVendu.noArticle}" class="bouton boutton_red">Supprimer l'enchère</a>
 			</c:if>
-			<a href="accueil">Annuler</a>
+			</div>
 		</section>
-
+	
 	</main>
+	<div class="videBotom"></div>
 </body>
 </html>

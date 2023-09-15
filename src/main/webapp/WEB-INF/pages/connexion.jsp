@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <meta charset="UTF-8">
 <title>Troc Enchère - Connexion</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">-->
 </head>
 <body>
 
@@ -36,17 +36,23 @@
 						<input type="password" name="motDePasse" id="motDePasse" placeholder="Mot De Passe">
 					</div>
 				</div>
-				
-				<div class="form-check input-group">
-				    <input class="form-check-input" type="checkbox" value="" id="souvenir">
-				    <label class="form-check-label" for="souvenir"> Se souvenir de moi </label>
+				<div class="bouton_container">
+					<div class="form-check input-group">
+					    <input class="form-check-input" type="checkbox" value="" id="souvenir">
+					    <label class="form-check-label" for="souvenir"> Se souvenir de moi </label>
+					</div>
+	
+					<input type="submit" class="bouton" value="Connexion">
 				</div>
-
-				<button type="submit" class="input-submit btn btn-dark">Envoyer</button>
-
 			</form>
-			<a href="#" class="link-danger">Mot de passe oublié</a> <br> 
-			<a href="creeruncompte">Créer un compte</a>
+				<div class="bouton_container">
+					<a href="#" class="">Mot de passe oublié ?</a> 
+				</div>
+				<div class="bouton_container">
+					<span>
+						Pas encore membre ? <a href="creeruncompte">Créer un compte</a>
+					</span>
+				</div>
 		</section>
 	</main>
 </body>

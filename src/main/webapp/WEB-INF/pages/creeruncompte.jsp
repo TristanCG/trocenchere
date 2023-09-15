@@ -106,25 +106,21 @@
 					<input type="password" name="confirmationMotDePasse" id="confirmationMotDePasse" value="">
 				</div>
 				
-				<div>
-					<div>
-						<c:choose>
-							<c:when test="${action eq 'update'}">
-								<input type="submit" value="Modifier" name="creerUnCompte">
-							</c:when>
-							<c:otherwise>
-								<input type="submit" value="Créer" name="creerUnCompte" class="bouton">
-							</c:otherwise>
-						</c:choose>
-					</div>
+				<div class="bouton_container">
+					<c:choose>
+						<c:when test="${action eq 'update'}">
+							<input type="submit" value="Modifier" name="creerUnCompte" class="bouton">
+						</c:when>
+						<c:otherwise>
+							<input type="submit" value="Créer" name="creerUnCompte" class="bouton">
+						</c:otherwise>
+					</c:choose>
+					
+					<a href="accueil" class="bouton">Annuler</a>
+					
 					<c:if test="${action eq 'update'}">
-						<div>
-							<a href="creeruncompte?delete&noUtilisateur=${utilisateur.noUtilisateur}" class="bouton boutton_red">Supprimer</a>
-						</div>
+						<a href="creeruncompte?delete&noUtilisateur=${utilisateur.noUtilisateur}" class="bouton boutton_red">Supprimer</a>
 					</c:if>
-					<div>
-						<a href="accueil" class="bouton">Annuler</a>
-					</div>
 				</div>
 			</form>
 		</section>

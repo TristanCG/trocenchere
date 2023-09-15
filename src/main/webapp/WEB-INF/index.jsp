@@ -135,6 +135,7 @@
 			</div>
 		</section>
 	</main>
+	<div class="videBotom"></div>
 <script>
   // Récupérez les éléments radio
   const achatsRadio = document.getElementById('achatsRechercheRadio');

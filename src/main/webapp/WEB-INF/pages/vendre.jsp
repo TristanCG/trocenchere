@@ -95,14 +95,19 @@
 						<label for="ville">Ville :</label>
 						<input type="text" name="ville" id="ville" value="${utilisateur.ville }">
 					</div>
-
+						
+						
+				<div class="bouton_container">
+					<input type="submit" class="bouton" value="Vendre"> 
+					<a href="accueil" class="bouton boutton_red">Annuler</a>
+				</div>
+				
 				<div class="boutons-vendre">
-					<input type="submit" class="btn btn-dark"> 
-					<a href="accueil" class="btn btn-dark">Annuler</a>
 				</div>	
 			</form>
 		</section>
 
 	</main>
+	<div class="videBotom"></div>
 </body>
 </html>
